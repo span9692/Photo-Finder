@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as sessionActions from '../../store/session'
 import { useDispatch, useSelector } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -11,44 +11,56 @@ function LoginFormPage() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    if (sessionUser) return (
-        <Redirect to='/' />
-    );
+    const history = useHistory();
+    if (sessionUser) history.push('/')
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
-        return dispatch(sessionActions.login([credential, password]))
+        return dispatch(sessionActions.login({ credential, password }))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors)
             });
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Username or Email
-                <input
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Log In</button>
-        </form>
+        <div>
+            <nav class='nav-bar'>
+                <h2 class='login-text'>Log In</h2>
+            </nav>
+            <div class='container'>
+                <form onSubmit={handleSubmit} class='login-form'>
+                    <ul class='errorMessage'>
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    </ul>
+                    <div class='inputbox'>
+                        <div class='signin-input'>
+                            <label>
+                                <input
+                                    type="text"
+                                    value={credential}
+                                    onChange={(e) => setCredential(e.target.value)}
+                                    placeholder="Username or Email"
+                                    required
+                                />
+                            </label>
+                        </div>
+                        <div class='signin-input'>
+                            <label>
+                                <input
+                                    type="password"
+                                    value={password}
+                                    placeholder="Password"
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                            </label>
+                        </div>
+                        <button type="submit" class='signin-input'>Log In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
 }
 
