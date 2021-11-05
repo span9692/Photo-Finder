@@ -1,4 +1,6 @@
+// Cookies will be used to extract the XSRF-TOKEN cookie value
 import Cookies from 'js-cookie';
+
 
 export async function csrfFetch(url, options = {}) {
     // set options.method to 'GET' if there is no method
