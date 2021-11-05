@@ -17,19 +17,6 @@ const removeUser = () => {
     };
 };
 
-const persistUser = () => {
-    return {
-        type: PERSIST_USER,
-    }
-}
-
-export const loadUser = () => async (dispatch) => {
-    const response = await csrfFetch('/api/session')
-    const data = await response.json()
-    dispatch(persistUser)
-}
-
-
 export const signup = (user) => async (dispatch) => {
     const { username, email, password } = user;
     const response = await csrfFetch("/api/users", {
@@ -65,6 +52,14 @@ export const restoreUser = () => async dispatch => {
     dispatch(setUser(data.user));
     return response;
   };
+
+  export const logout = () => async dispatch => {
+      const response = await csrfFetch('/api/session', {
+          method:"DELETE"
+      });
+      dispatch(removeUser())
+      return response
+  }
 
 const initialState = { user: null };
 
