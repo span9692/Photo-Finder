@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import LoginFormPage from "./components/LoginFormPage";
-import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -14,20 +12,18 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  return (
-    <>
+  return isLoaded &&(
+    <div>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path="/login">
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-        </Switch>
-      )}
-    </>
+      <div className='wrapper'>
+        <div className='sidebar'>
+        <div className='mainbar'>
+        <div className='sidebar'>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
