@@ -15,12 +15,9 @@ function App() {
   return isLoaded &&(
     <div class='wrapper'>
       <Navigation isLoaded={isLoaded} />
-      <div className='container'>
-        <div className='sidebar'>
-        </div>
-        <div className='mainbar'>
-        </div>
-        <div className='sidebar'>
+      <div className='splash'>
+        <div class='tagline'>
+          <span class='caption'>Capture The Perfect Moment With Us!</span>
         </div>
       </div>
     </div>
