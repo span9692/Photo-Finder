@@ -13,14 +13,14 @@ function App() {
   }, [dispatch]);
 
   return isLoaded &&(
-    <div>
+    <div class='wrapper'>
       <Navigation isLoaded={isLoaded} />
-      <div className='wrapper'>
+      <div className='container'>
         <div className='sidebar'>
+        </div>
         <div className='mainbar'>
+        </div>
         <div className='sidebar'>
-        </div>
-        </div>
         </div>
       </div>
     </div>

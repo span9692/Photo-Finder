@@ -1,1 +1,20 @@
 /* TODO Add site wide styles */
+
+.wrapper {
+    /* display:flex; */
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 18%;
+}
+
+.mainbar {
+    width: 64%;
+}
