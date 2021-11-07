@@ -16,6 +16,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      profilePic: {
+        allowNull: false,
+        type:Sequelize.STRING
+      },
       biography: {
         allowNull: false,
         type: Sequelize.STRING
