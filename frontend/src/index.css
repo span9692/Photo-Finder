@@ -1,8 +1,8 @@
 /* TODO Add site wide styles */
 
 .wrapper {
-    /* display:inline-flex;
-    flex-direction: column; */
+    display:flex;
+    flex-direction: column;
     width: 100%;
     padding: 0px;
     margin: 0px;

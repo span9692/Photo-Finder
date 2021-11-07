@@ -1,7 +1,7 @@
 .navbar {
     display:flex;
     justify-content: space-between;
-    background-color: rgb(196, 160, 160);
+    /* background-color: rgb(196, 160, 160); */
     height: 60px;
     width:100%
 }
@@ -15,17 +15,57 @@
     justify-content: flex-end;
 }
 .tagline {
-    display:flex;
-    justify-content: flex-end;
+    display:block;
+    /* justify-content: flex-end; */
     color: white;
     font-style:bold;
     font-size: 100px;
     width: 50%;
     margin-left: 40px;
+    margin-top: 60px;
 }
 
-.caption {
+.caption1 {
     display: flex;
     margin-left: 60px;
     margin-top: 80px;
+}
+
+.caption2 {
+    display:flex;
+    margin-left: 115px;
+}
+
+.style1,
+.start-button{
+    animation: fadeIn linear 30s;
+    -webkit-animation: fadeIn linear 5s;
+}
+
+  @keyframes fadeIn {
+      0% {opacity:0;}
+      100% {opacity:1;}
+    }
+    @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+.get-started {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px
+}
+.start-button {
+    justify-content: flex-end;
+    background-color: rgb(223, 81, 81);
+    color: white;
+    font-weight: bold;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
