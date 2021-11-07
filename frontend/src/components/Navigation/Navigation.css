@@ -69,3 +69,9 @@
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.homebar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
