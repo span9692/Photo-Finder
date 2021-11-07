@@ -15,6 +15,11 @@ function SignupFormPage() {
 
     if (sessionUser) return <Redirect to="/" />;
 
+    const demoLogin = async () => {
+        const demoUser = { credential: 'Demo-lition', password: 'password' }
+        await dispatch(sessionActions.login(demoUser))
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password === confirmPassword) {
@@ -30,7 +35,7 @@ function SignupFormPage() {
 
     return (
         <form class='modal-form' onSubmit={handleSubmit}>
-            <ul>
+            <ul class='no-bullet'>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>
@@ -70,6 +75,7 @@ function SignupFormPage() {
                 required
             />
             <button type="submit">Sign Up</button>
+            <button onClick={demoLogin}>Demo Login</button>
         </form>
     );
 }

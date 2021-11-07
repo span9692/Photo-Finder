@@ -19,33 +19,41 @@ function LoginForm() {
     );
   };
 
+  const demoLogin = async () => {
+    const demoUser = { credential: 'Demo-lition', password: 'password' }
+    await dispatch(sessionActions.login(demoUser))
+  }
+
   return (
-    <form class='modal-form' onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
-      <label>
-        Username or Email
-      </label>
-      <input
-        type="text"
-        value={credential}
-        onChange={(e) => setCredential(e.target.value)}
-        required
-      />
-      <label>
-        Password
-      </label>
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">Log In</button>
-    </form>
+    <>
+      <form class='modal-form' onSubmit={handleSubmit}>
+        <ul class='no-bullet'>
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
+        <label>
+          Username or Email
+        </label>
+        <input
+          type="text"
+          value={credential}
+          onChange={(e) => setCredential(e.target.value)}
+          required
+        />
+        <label>
+          Password
+        </label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Log In</button>
+        <button onClick={demoLogin}>Demo Login</button>
+      </form>
+    </>
   );
 }
 

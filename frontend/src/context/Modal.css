@@ -21,9 +21,9 @@
 #modal-content {
   display: flex;
   position: absolute;
-  background-color: white;
+  background-color: rgb(202, 176, 176);
   width: 250px;
-  height: 175px;
+  height: 260px;
 }
 
 .modal-form {

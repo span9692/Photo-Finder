@@ -26,13 +26,15 @@ function Navigation({ isLoaded }) {
 
   return (
     <div class='navbar'>
-      <ul>
+      <ul class='no-bullet'>
         <li>
           <div class='homebar'>
             <div>
               <NavLink exact to="/">Home</NavLink>
             </div>
-            {isLoaded && sessionLinks}
+            <div>
+              {isLoaded && sessionLinks}
+            </div>
           </div>
         </li>
       </ul>

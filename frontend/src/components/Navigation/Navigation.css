@@ -1,13 +1,13 @@
 .navbar {
     display:flex;
     justify-content: space-between;
-    /* background-color: rgb(196, 160, 160); */
     height: 60px;
-    width:100%
+    width:100%;
+    /* background-color: blue; */
 }
 
 .profile-dropdown {
-    background-color: yellow;
+    z-index: 1;
 }
 
 .splash {
@@ -37,6 +37,7 @@
 }
 
 .style1,
+.quote,
 .start-button{
     animation: fadeIn linear 30s;
     -webkit-animation: fadeIn linear 5s;
@@ -74,4 +75,9 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+}
+
+.no-bullet {
+    list-style-type: none;
+    width: 100%;
 }

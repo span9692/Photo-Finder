@@ -11,18 +11,19 @@
 .splash {
     background-image: url('https://assets.entrepreneur.com/content/3x2/2000/20191009140007-GettyImages-1053962188.jpeg');
     height: 1000px;
+    z-index: -1;
 }
 
 .quote {
     display: flex;
     flex-direction: column;
     width: 250px;
-    margin-top: 300px;
+    margin-top: 200px;
     margin-left: 500px;
 }
+
 #quote1 {
     font-size: 20px;
-    position: right;
     margin: none;
     display:block
 }
@@ -30,4 +31,8 @@
 #quote2 {
     font-size: 20px;
     margin-left: 80px;
+}
+
+ul {
+    padding: 0px 5px 0px 5px;
 }
