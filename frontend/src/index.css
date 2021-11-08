@@ -36,3 +36,11 @@
 ul {
     padding: 0px 5px 0px 5px;
 }
+
+.photographer-portraits {
+    width: 300px;
+}
+
+.portraits {
+    display:flex;
+}

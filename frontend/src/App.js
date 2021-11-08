@@ -15,7 +15,6 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  const cats = 'Toby'
   return isLoaded && (
     <div>
       <Navigation isLoaded={isLoaded} />
