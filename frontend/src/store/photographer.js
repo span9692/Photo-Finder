@@ -42,6 +42,8 @@ const photographerReducer = (state = {}, action) => {
             return newState;
         case NEW_PHOTOGRAPHER:
             newState = {...state}
+            newState[action.data.id]= action.data
+            return newState;
         default:
             return state;
     }

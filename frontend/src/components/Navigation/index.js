@@ -1,11 +1,10 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
-import PhotographerForm from '../PhotographerForm'
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {

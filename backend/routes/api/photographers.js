@@ -44,16 +44,19 @@ router.get('/', asyncHandler(async (req, res) => {
 // post a new photographer
 router.post('/', validatePhotographer, asyncHandler(async (req, res) => {
     const { firstName, lastName, profilePic, biography, city, state, price } = req.body;
-    const newPhotographer = await Photographer.create(
-        firstName,
-        lastName,
-        profilePic,
-        biography,
-        city,
-        state,
-        price,
-    )
-
+    console.log('ahsjdfklhasjklfhlsafhsa')
+    console.log(firstName)
+    // const newPhotographer = await Photographer.create(
+    //     firstName,
+    //     lastName,
+    //     profilePic,
+    //     biography,
+    //     city,
+    //     state,
+    //     price,
+    // )
+    const newPhotographer = await Photographer.create(req.body)
+    // console.log('ahsjdfklhasjklfhlsafhsa')
     res.json(newPhotographer)
 }))
 

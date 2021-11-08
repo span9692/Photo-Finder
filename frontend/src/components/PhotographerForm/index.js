@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from "react-redux";
 import { addPhotographer } from '../../store/photographer'
 
 const PhotographerForm = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const [firstName, setFirstName] = useState('');
@@ -11,7 +13,7 @@ const PhotographerForm = () => {
     const [biography, setBiography] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
-    const [price, setPrice] = useState();
+    const [price, setPrice] = useState(0);
 
     const reset = () => {
         setFirstName("");
@@ -20,7 +22,7 @@ const PhotographerForm = () => {
         setBiography('');
         setCity('');
         setState('');
-        setPrice()
+        setPrice(0)
     }
 
 
@@ -37,8 +39,9 @@ const PhotographerForm = () => {
             price
         };
 
-        const returnedFromDispatch = await dispatch(addPhotographer(newPhotographer));
-        console.log(returnedFromDispatch)
+        await dispatch(addPhotographer(newPhotographer));
+        history.push('/home')
+
         reset();
     };
 
@@ -117,7 +120,7 @@ const PhotographerForm = () => {
                     />
                 </div>
                 <div>
-                    <button>Submit</button>
+                    <button type='submit'>Submit</button>
                 </div>
             </form>
         </div>
