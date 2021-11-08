@@ -38,9 +38,17 @@ ul {
 }
 
 .photographer-portraits {
-    width: 300px;
+    height: 500px;
+    margin-right: 10px;
+    margin-top: 20px;
 }
 
 .portraits {
     display:flex;
+    flex-wrap: wrap;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
 }

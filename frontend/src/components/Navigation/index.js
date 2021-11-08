@@ -1,6 +1,6 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
@@ -30,7 +30,7 @@ function Navigation({ isLoaded }) {
         <li>
           <div class='homebar'>
             <div >
-              <NavLink class='home-button' exact to="/">Home</NavLink>
+              <Link class='home-button' exact to="/">Home</Link>
             </div>
             <div>
               {isLoaded && sessionLinks}
