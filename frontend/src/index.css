@@ -1,4 +1,7 @@
 /* TODO Add site wide styles */
+body {
+    background-color: rgba(214, 188, 177, 0.473);
+}
 
 .wrapper {
     display:flex;
@@ -51,4 +54,9 @@ ul {
 .info {
     display: flex;
     justify-content: space-around;
+}
+
+.become-photographer {
+    display: flex;
+    justify-content: space-between;
 }

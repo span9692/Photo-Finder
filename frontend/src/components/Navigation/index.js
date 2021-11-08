@@ -1,10 +1,11 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import PhotographerForm from '../PhotographerForm'
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -13,7 +14,14 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <div class='become-photographer'>
+        <div>
+          <button><Link to='/post'>Become a Photographer</Link></button>
+        </div>
+        <div>
+          <ProfileButton user={sessionUser} />
+        </div>
+      </div>
     );
   } else {
     sessionLinks = (
@@ -32,9 +40,7 @@ function Navigation({ isLoaded }) {
             <div >
               <Link class='home-button' exact to="/">Home</Link>
             </div>
-            <div>
-              {isLoaded && sessionLinks}
-            </div>
+            {isLoaded && sessionLinks}
           </div>
         </li>
       </ul>
