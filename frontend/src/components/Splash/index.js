@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Route, Switch, NavLink } from "react-router-dom";
+
+import { NavLink } from "react-router-dom";
 
 let lines = [['"Photography is the story I fail to put into words."', "-Destin Sparks"],
 ['"There is one thing the photo must contain - the humanity of the moment."', '-Robert Frank'],

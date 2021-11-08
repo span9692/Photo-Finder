@@ -1,17 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { showPicture } from '../../store/photos'
 import { useSelector, useDispatch } from 'react-redux'
-import * as photoActions from '../../store/photos'
+import { getPhotographer } from '../../store/photographer'
 
 
-function Home({cats}) {
+function Home() {
     const dispatch = useDispatch();
+    const photos = useSelector(state => state.photo)
+    const photographer = useSelector(state => state.photographer)
 
     useEffect(() => {
         dispatch(showPicture())
-    }, [])
+        dispatch(getPhotographer())
+    }, [dispatch])
     let photoUrl
-    const photos = useSelector(state => state.photo)
     if (photos[1]) {
         photoUrl = <img src={photos[1].url}></img>;
 

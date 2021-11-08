@@ -12,7 +12,6 @@ const displayPix = (data) => {
 export const showPicture = () => async dispatch => {
     const response = await csrfFetch("/api/photos")
     const data = await response.json();
-    console.log(data)
     dispatch(displayPix(data))
 
 }
