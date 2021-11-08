@@ -18,7 +18,7 @@ function Home() {
 return (
     <div class='portraits'>
         {profiles.map(profile => (
-        <div>
+        <div key={profile[1].id}>
             <img class='photographer-portraits' src={profile[1].profilePic}></img>
             <div class='info'>
                 <div>

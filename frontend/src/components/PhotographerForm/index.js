@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPhotographer } from '../../store/photographer'
 
 const PhotographerForm = () => {
+    const sessionUser = useSelector(state => state.session.user)
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -36,13 +37,13 @@ const PhotographerForm = () => {
             biography,
             city,
             state,
+            userId: sessionUser.id,
             price
         };
 
         await dispatch(addPhotographer(newPhotographer));
-        history.push('/home')
-
         reset();
+        history.push('/home')
     };
 
     return (
