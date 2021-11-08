@@ -1,9 +1,11 @@
 // frontend/src/App.js
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, NavLink } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import Home from './components/Home'
+import Splash from './components/Splash'
 
 function App() {
   const dispatch = useDispatch();
@@ -13,50 +15,18 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  let lines = [['"Photography is the story I fail to put into words."', "-Destin Sparks"],
-  ['"There is one thing the photo must contain - the humanity of the moment."', '-Robert Frank'],
-  ['"A good snapshot keeps a moment that\'s gone from running away."', '-Eudora Welty'],
-  ['"Photography is the art of making memories tangible."', '-Destin Sparks'],
-  ['"It\'s one thing to make a picture of what a person looks like, it\'s another thing to make a portrait of who they are."', '-Paul Caponigro'],
-  ['"In the world of photography, you get to share a captured moment with other people."', '-James Wilson'],
-  ['"Taking an image, freezing a moment, reveals how rich reality truly is."', '-Anonymous'],
-  ['"The best thing about a picture is that it never changes, even when the people in it do."', '-Andy Warhol'],
-  ['"We are making photographs to understand what our lives mean to us."', '-Ralph Hattersley']
-  ];
-
-  let index = 0;
-
-  useEffect(()=> {
-    let interval = setInterval(() => {
-      setQuote(lines[index])
-      index++;
-      if (index === lines.length) {
-        index = 0;
-      };
-    }, 6000)
-    return () => {clearInterval(interval)}
-  }, [])
-
-
-
+  const cats = 'Toby'
   return isLoaded && (
     <div>
       <Navigation isLoaded={isLoaded} />
-      <div class='wrapper'>
-        <div className='splash'>
-          <div class='tagline'>
-            <span class='caption1 style1'>Capture The Perfect</span>
-            <span class='caption2 style1'>Moment With Us!</span>
-            <div class='get-started'>
-              <button class='start-button'>Get Started</button>
-            </div>
-            <div class='quote'>
-              <div id='quote1'>{quote[0]}</div>
-              <div id='quote2'>{quote[1]}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Switch>
+        <Route exact path='/'>
+          <Splash />
+        </Route>
+        <Route path='/home'>
+          <Home cats={cats} />Hello
+        </Route>
+      </Switch>
     </div>
   );
 }

@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     Photographer.hasMany(models.Review, {foreignKey:'photographerId', onDelete: 'cascade', hooks: true});
     Photographer.hasMany(models.Appointment, {foreignKey:'photographerId', onDelete: 'cascade', hooks: true})
     Photographer.hasMany(models.Photo, {foreignKey:'portfolioId', onDelete: 'cascade', hooks: true})
+    Photographer.belongsTo(models.User, {foreignKey:'userId'})
   };
   return Photographer;
 };

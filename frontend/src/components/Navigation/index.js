@@ -29,8 +29,8 @@ function Navigation({ isLoaded }) {
       <ul class='no-bullet'>
         <li>
           <div class='homebar'>
-            <div>
-              <NavLink exact to="/">Home</NavLink>
+            <div >
+              <NavLink class='home-button' exact to="/">Home</NavLink>
             </div>
             <div>
               {isLoaded && sessionLinks}

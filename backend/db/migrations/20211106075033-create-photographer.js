@@ -32,11 +32,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      // userId: {
-      //   allowNull: false,
-      //   type: Sequelize.INTEGER,
-      //   references: {model:'Users'}
-      // },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {model:'Users'}
+      },
       price: {
         allowNull: false,
         type: Sequelize.INTEGER
