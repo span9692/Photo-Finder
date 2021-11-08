@@ -8,10 +8,53 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
-// grabbing photos from our photos database
-router.get('/', asyncHandler(async(req, res) => {
+const validatePhotographer = [
+    check('firstName')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter your First Name.'),
+    check('lastName')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter your Last Name.'),
+    check('profilePic')
+        .exists({ checkFalsy: true })
+        .withMessage('Please submit a Profile Picture.'),
+    check('biography')
+        .exists({ checkFalsy: true })
+        .withMessage('Please tell us about yourself.'),
+    check('city')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter your City.'),
+    check('state')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter your State.'),
+    check('price')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter your Rate.'),
+    handleValidationErrors,
+];
+
+
+
+// grabbing photographers from our photos database
+router.get('/', asyncHandler(async (req, res) => {
     const photographers = await Photographer.findAll()
     res.json(photographers);
+}))
+
+// post a new photographer
+router.post('/', validatePhotographer, asyncHandler(async (req, res) => {
+    const { firstName, lastName, profilePic, biography, city, state, price } = req.body;
+    const newPhotographer = await Photographer.create(
+        firstName,
+        lastName,
+        profilePic,
+        biography,
+        city,
+        state,
+        price,
+    )
+
+    res.json(newPhotographer)
 }))
 
 module.exports = router;

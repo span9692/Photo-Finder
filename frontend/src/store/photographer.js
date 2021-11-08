@@ -34,11 +34,14 @@ export const addPhotographer = (info) => async dispatch => {
 }
 
 const photographerReducer = (state = {}, action) => {
+    let newState;
     switch (action.type) {
         case GET_PHOTOGRAPHERS:
-            const newState = {...state};
+            newState = {...state};
             action.data.forEach(photographer => newState[photographer.id] = photographer)
             return newState;
+        case NEW_PHOTOGRAPHER:
+            newState = {...state}
         default:
             return state;
     }

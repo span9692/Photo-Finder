@@ -1,102 +1,120 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { addPhotographer } from '../../store/photographer'
 
-function PhotographerForm() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [phoneType, setPhoneType] = useState('');
-    const [role, setRole] = useState('');
+const PhotographerForm = () => {
+    const dispatch = useDispatch();
+
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [profilePic, setProfilePic] = useState('');
     const [biography, setBiography] = useState('');
-    const [subscribe, setSubscribe] = useState('');
-    const [validationErrors, setValidationErrors] = useState([]);
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [price, setPrice] = useState();
 
-    const validate = () => {
-        const validationErrors = [];
-        if (!name) validationErrors.push('Please provide a Name');
-        if (!email) validationErrors.push('Please enter an email');
-        if (!phone) validationErrors.push('Please enter a phone number');
-        if (!biography) validationErrors.push('Please enter a biography')
-        return validationErrors;
+    const reset = () => {
+        setFirstName("");
+        setLastName("");
+        setProfilePic('');
+        setBiography('');
+        setCity('');
+        setState('');
+        setPrice()
     }
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        const errors = validate();
-        if (errors.length > 0) return setValidationErrors(errors);
 
-        const userInfo = {
-            name,
-            email,
-            phone,
-            phoneType,
-            role,
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        const newPhotographer = {
+            firstName,
+            lastName,
+            profilePic,
             biography,
-            subscribe
+            city,
+            state,
+            price
         };
-        console.log(userInfo);
-        setName('');
-        setEmail('');
-        setPhone('');
-        setPhoneType('');
-        setRole('');
-        setBiography('');
-        setSubscribe('');
-        setValidationErrors([]);
+
+        const returnedFromDispatch = await dispatch(addPhotographer(newPhotographer));
+        console.log(returnedFromDispatch)
+        reset();
     };
 
     return (
         <div>
-            {validationErrors.length > 0 && (
-                <div>
-                    The following errors were found:
-                    <ul>
-                        {validationErrors.map(error => <li key={error}>{error}</li>)}
-                    </ul>
-                </div>
-            )}
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <form onSubmit={onSubmit}>
                 <div>
-                    <label htmlFor='name'>Name:</label>
+                    <label htmlFor='firstName'>First Name:</label>
                     <input
-                        id='name'
+                        id='firstName'
                         type='text'
-                    // onChange={(e)=>}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        value={firstName}
                     />
                 </div>
                 <div>
-                    <label htmlFor='email'>Email:</label>
+                    <label htmlFor='lastName'>Last Name:</label>
                     <input
-                        id='email'
+                        id='lastName'
                         type='text'
+                        onChange={(e) => setLastName(e.target.value)}
+                        value={lastName}
                     />
                 </div>
                 <div>
-                    <select name='phoneType'>
-                        <option value='Home'>Home</option>
-                        <option value='Work'>Work</option>
-                        <option value='Mobile'>Mobile</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor='phone'>Phone:</label>
+                    <label htmlFor='profilePic'>Profile Picture URL:</label>
                     <input
-                        id='phone'
+                        id='profilePic'
                         type='text'
+                        onChange={(e) => setProfilePic(e.target.value)}
+                        value={profilePic}
                     />
                 </div>
                 <div>
-                    <input type='radio' id='instructor' name='button' />
-                    <label htmlFor='instructor'>Instructor</label>
-                    <input type='radio' id='student' name='button' />
-                    <label htmlFor='student'>Student</label>
+                    <label htmlFor='biography'>Biography:</label>
+                    <input
+                        id='biography'
+                        type='text'
+                        onChange={(e) => setBiography(e.target.value)}
+                        value={biography}
+                    />
+                </div>
+                {/* <div>
+                        <label htmlFor='biography'>Biography</label>
+                        <textarea id='biography'></textarea>
+                    </div> */}
+                <div>
+                    <label htmlFor='city'>City:</label>
+                    <input
+                        id='city'
+                        type='text'
+                        onChange={(e) => setCity(e.target.value)}
+                        value={city}
+                    />
                 </div>
                 <div>
-                    <label htmlFor='biography'>Biography</label>
-                    <textarea id='biography'></textarea>
+                    <label htmlFor='state'>State:</label>
+                    <input
+                        id='state'
+                        type='text'
+                        onChange={(e) => setState(e.target.value)}
+                        value={state}
+                    />
                 </div>
                 <div>
-                    <input type='checkbox' id='checkbox' ></input>
-                    <label forHtml='checkbox'>Subscribe for email notifications!</label>
+                    <label htmlFor='price'>Price:</label>
+                    <input
+                        id='price'
+                        type='integer'
+                        onChange={(e) => setPrice(e.target.value)}
+                        value={price}
+                    />
                 </div>
                 <div>
                     <button>Submit</button>
