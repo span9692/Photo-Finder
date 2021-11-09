@@ -14,9 +14,12 @@ function DeletePhotographer() {
     }
 
     return (
-        <div>
-            Are you sure?
-            <button onClick={deleteButton}>Yes</button>
+        <div class='modal-form'>
+            <div class='areyousure'>Are you sure?</div>
+
+            <div>
+                <button class='areyou profile-buttons' onClick={deleteButton}>Yes</button>
+            </div>
         </div>
     )
 }

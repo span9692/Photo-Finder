@@ -24,9 +24,13 @@ function PhotographerProfile() {
         )
     } else if (user.id === currentPhotographer?.userId) {
         options = (
-            <div>
-                <EditProfileModal />
-                <DeleteModal />
+            <div class='edit-delete-button'>
+                <div class='edit-delete-button'>
+                    <EditProfileModal />
+                </div>
+                <div class='edit-delete-button'>
+                    <DeleteModal />
+                </div>
             </div>
         )
     } else {

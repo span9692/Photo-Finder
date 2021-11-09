@@ -8,7 +8,7 @@ function EditProfileModal() {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Edit</button>
+            <button class='profile-buttons' onClick={() => setShowModal(true)}>Edit</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditProfileForm />

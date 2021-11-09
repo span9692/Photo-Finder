@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 body {
     background-color: rgba(214, 188, 177, 0.473);
+    /* background-color: white; */
 }
 
 .wrapper {
@@ -51,6 +52,8 @@ ul {
     border: 1px solid black;
     margin-right: 20px;
     margin-bottom: 20px;
+    background-color: rgb(179, 153, 153);
+    /* background-color: rgba(214, 188, 177, 0.473); */
 }
 
 .portraits {
@@ -73,4 +76,35 @@ ul {
     text-decoration: none;
     color: black;
     font-weight: 600;
+}
+
+.delete-modal {
+    background-color: white;
+}
+
+.confirm-delete {
+    display: inline-flex;
+    justify-content: center;
+}
+
+.formfield {
+    font-weight: bold;
+    margin-left: 9px;
+    margin-bottom: 3px;
+}
+
+.formfield-button{
+    margin: auto;
+}
+
+.areyousure {
+    font-size: 25px;
+    color:rgb(172, 27, 27);
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.areyou {
+    margin-bottom: 10px;
 }

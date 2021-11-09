@@ -7,9 +7,9 @@ function DeleteModal() {
 
     return (
         <>
-            <button onClick={()=>setShowModal(true)}>Delete</button>
+            <button class='profile-buttons' onClick={()=>setShowModal(true)}>Delete</button>
             {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
+                <Modal class='delete-modal' onClose={() => setShowModal(false)}>
                     <DeletePhotographer />
                 </Modal>
             )}

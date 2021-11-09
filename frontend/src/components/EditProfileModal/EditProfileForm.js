@@ -52,7 +52,7 @@ function EditProfileForm() {
                         <li key={idx}>{error}</li>
                     ))}
                 </ul>
-                    <div>
+                    <div class='formfield'>
                         <label htmlFor='firstName'>First Name:</label>
                         <input
                             id='firstName'
@@ -61,7 +61,7 @@ function EditProfileForm() {
                             value={firstName}
                         />
                     </div>
-                    <div>
+                    <div class='formfield'>
                         <label htmlFor='lastName'>Last Name:</label>
                         <input
                             id='lastName'
@@ -70,7 +70,7 @@ function EditProfileForm() {
                             value={lastName}
                         />
                     </div>
-                    <div>
+                    <div class='formfield'>
                         <label htmlFor='profilePic'>Profile Picture URL:</label>
                         <input
                             id='profilePic'
@@ -79,7 +79,7 @@ function EditProfileForm() {
                             value={profilePic}
                         />
                     </div>
-                    <div>
+                    <div class='formfield'>
                         <label htmlFor='biography'>Biography:</label>
                         <input
                             id='biography'
@@ -92,7 +92,7 @@ function EditProfileForm() {
                         <label htmlFor='biography'>Biography</label>
                         <textarea id='biography'></textarea>
                     </div> */}
-                    <div>
+                    <div class='formfield'>
                         <label htmlFor='city'>City:</label>
                         <input
                             id='city'
@@ -101,7 +101,7 @@ function EditProfileForm() {
                             value={city}
                         />
                     </div>
-                    <div>
+                    <div class='formfield'>
                         <label htmlFor='state'>State:</label>
                         <input
                             id='state'
@@ -110,7 +110,7 @@ function EditProfileForm() {
                             value={state}
                         />
                     </div>
-                    <div>
+                    <div class='formfield'>
                         <label htmlFor='price'>Price:</label>
                         <input
                             id='price'
@@ -119,8 +119,8 @@ function EditProfileForm() {
                             value={price}
                         />
                     </div>
-                    <div>
-                        <button type='submit'>Submit</button>
+                    <div class='formfield formfield-button'>
+                        <button class='areyou profile-buttons'type='submit'>Submit</button>
                     </div>
                 </form>
             </>
