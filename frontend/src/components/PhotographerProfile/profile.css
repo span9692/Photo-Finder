@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+}
+
+.profile-pic {
+    height: 700px;
+}
+
+.left-border {
+    width: 20%;
+}
+
+.profile-info {
+    margin-left: 20px;
+    position: relative;
+}
+
+.test {
+    position: absolute;
+    bottom: 0;
+}

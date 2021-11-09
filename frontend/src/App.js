@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import Home from './components/Home'
 import Splash from './components/Splash'
 import PhotographerForm from "./components/PhotographerForm";
+import PhotographerProfile from "./components/PhotographerProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route path='/post'>
           <PhotographerForm />
+        </Route>
+        <Route path='/photographers/:photographerId'>
+          <PhotographerProfile />
         </Route>
       </Switch>
     </div>

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { getPhotographer } from '../../store/photographer'
@@ -19,16 +20,18 @@ return (
     <div class='portraits'>
         {profiles.map(profile => (
         <div key={profile[1].id}>
-            <img class='photographer-portraits' src={profile[1].profilePic}></img>
-            <div class='info'>
-                <div>
-                    <div>{profile[1].firstName} {profile[1].lastName}</div>
-                    <div>{profile[1].city}, {profile[1].state}</div>
+            <Link to={`/photographers/${profile[1].id}`}>
+                <img class='photographer-portraits' src={profile[1].profilePic}></img>
+                <div class='info'>
+                    <div>
+                        <div>{profile[1].firstName} {profile[1].lastName}</div>
+                        <div>{profile[1].city}, {profile[1].state}</div>
+                    </div>
+                    <div>
+                        {'$'}{profile[1].price}/hr
+                    </div>
                 </div>
-                <div>
-                    {'$'}{profile[1].price}/hr
-                </div>
-            </div>
+            </Link>
         </div>
         ))}
     </div>
