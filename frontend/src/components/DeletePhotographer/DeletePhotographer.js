@@ -7,9 +7,7 @@ function DeletePhotographer() {
     const {photographerId}= useParams()
     const dispatch = useDispatch();
     const history = useHistory();
-    // const photographer = useSelector(state => state.photographer)
 
-    // console.log(photographerId)
     const deleteButton = async() => {
         dispatch(deletePhotographer(photographerId))
         await history.push('/photographers')

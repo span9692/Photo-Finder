@@ -34,7 +34,7 @@ function EditProfileForm() {
             userId: sessionUser.id,
             price
         }
-        // console.log(photographer.id)
+
         await dispatch(updatePhotographer(update))
             .catch(async (res) => {
                 const data = await res.json();
@@ -42,7 +42,6 @@ function EditProfileForm() {
             }
         )
         history.push(`/photographers/${photographer.id}`)
-        // history.push(`/photographers`)
     }
 
     return (

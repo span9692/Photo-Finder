@@ -49,7 +49,6 @@ router.post('/', validatePhotographer, asyncHandler(async (req, res) => {
 
 //update a photographer
 router.put('/:photographerId', validatePhotographer, asyncHandler(async(req, res) => {
-    // console.log('WE IN THE BACKEND ROUTE YOOOOOOOOOOOO')
     const { firstName,
         lastName,
         profilePic,
