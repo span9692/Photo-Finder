@@ -73,4 +73,11 @@ router.put('/:photographerId', validatePhotographer, asyncHandler(async(req, res
     res.json(person)
 }))
 
+router.delete('/:photographerId', asyncHandler(async(req, res) => {
+    const id = req.params.photographerId;
+    let person = await Photographer.findByPk(id)
+    await person.destroy()
+    res.json({message:'Posting Deleted'})
+}))
+
 module.exports = router;
