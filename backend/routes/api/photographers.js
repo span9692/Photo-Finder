@@ -47,4 +47,30 @@ router.post('/', validatePhotographer, asyncHandler(async (req, res) => {
     res.json(newPhotographer)
 }))
 
+//update a photographer
+router.put('/:photographerId', validatePhotographer, asyncHandler(async(req, res) => {
+    // console.log('WE IN THE BACKEND ROUTE YOOOOOOOOOOOO')
+    const { firstName,
+        lastName,
+        profilePic,
+        biography,
+        city,
+        state,
+        userId,
+        price} = req.body;
+
+    const id = req.params.photographerId;
+    let photographer = await Photographer.findByPk(id)
+    const person = await photographer.update({firstName,
+        lastName,
+        profilePic,
+        biography,
+        city,
+        state,
+        userId,
+        price})
+
+    res.json(person)
+}))
+
 module.exports = router;

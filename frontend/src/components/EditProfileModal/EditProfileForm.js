@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { updatePhotographer } from '../../store/photographer'
 
 function EditProfileForm() {
     const { photographerId } = useParams();
-    const photographerList = useSelector(state => state.photographer)
-    const photographer = photographerList[photographerId]
+    const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user)
+    const photographer = useSelector(state => state.photographer[photographerId])
+    // const photographer = photographerList[photographerId]
 
     const [firstName, setFirstName] = useState(photographer.firstName);
     const [lastName, setLastName] = useState(photographer.lastName);
@@ -15,8 +18,22 @@ function EditProfileForm() {
     const [state, setState] = useState(photographer.state);
     const [price, setPrice] = useState(photographer.price);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const update = {
+            ...photographer,
+            firstName,
+            lastName,
+            profilePic,
+            biography,
+            city,
+            state,
+            userId: sessionUser.id,
+            price
+        }
+        console.log('YOOOO WE UPDATINGG', update)
+        await dispatch(updatePhotographer(update));
     }
 
     return (

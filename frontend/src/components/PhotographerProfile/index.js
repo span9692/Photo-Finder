@@ -5,10 +5,9 @@ import './profile.css'
 
 function PhotographerProfile() {
     const { photographerId } = useParams()
-    const photographerList = useSelector(state => state.photographer)
     const user = useSelector(state => state.session.user)
+    const photographerList = useSelector(state => state.photographer)
     const currentPhotographer = photographerList[photographerId]
-    // console.log(currentPhotographer)
 
     let options;
     if (user.id === currentPhotographer.userId) {
@@ -21,7 +20,7 @@ function PhotographerProfile() {
     } else {
         options = (
             <div>
-                <button>Book</button>
+                <button>Book</button><button>Leave a Review</button>
             </div>
         )
     }

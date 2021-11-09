@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const GET_PHOTOGRAPHERS = 'photographers/GET_PHOTOGRAPHERS'
 const NEW_PHOTOGRAPHER = 'photographer/NEW_PHOTOGRAPHER'
+const EDIT_PHOTOGRAPHER = 'photograph/EDIT_PHOTOGRAPHER'
 
 const showPhotographer = (data) => {
     return {
@@ -14,6 +15,29 @@ const newPhotographer = (data) => {
     return {
         type: NEW_PHOTOGRAPHER,
         data
+    }
+}
+
+const modifyPhotographer = (data) => {
+    return {
+        type: EDIT_PHOTOGRAPHER,
+        data
+    }
+}
+
+export const updatePhotographer = (data) => async dispatch => {
+    console.log(data.id)
+
+    const response = await csrfFetch(`/api/photographers/${data.id}`, {
+        method:"PUT",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(data)
+    })
+    // console.log('THIS IS THE RESPONSE,', response)
+    if (response.ok) {
+        const updated = await response.json();
+        dispatch(modifyPhotographer(updated))
+        return updated;
     }
 }
 
@@ -42,7 +66,11 @@ const photographerReducer = (state = {}, action) => {
             return newState;
         case NEW_PHOTOGRAPHER:
             newState = {...state}
-            newState[action.data.id]= action.data
+            newState[action.data.id] = action.data
+            return newState;
+        case EDIT_PHOTOGRAPHER:
+            newState = {...state}
+            newState[action.data.id] = action.data
             return newState;
         default:
             return state;
