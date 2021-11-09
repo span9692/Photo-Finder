@@ -32,7 +32,7 @@ function EditProfileForm() {
             userId: sessionUser.id,
             price
         }
-        console.log('YOOOO WE UPDATINGG', update)
+
         await dispatch(updatePhotographer(update));
     }
 

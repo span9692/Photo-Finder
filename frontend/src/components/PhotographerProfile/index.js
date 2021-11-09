@@ -10,7 +10,11 @@ function PhotographerProfile() {
     const currentPhotographer = photographerList[photographerId]
 
     let options;
-    if (user.id === currentPhotographer.userId) {
+    if(!user) {
+        options = (
+            <div></div>
+        )
+    } else if (user.id === currentPhotographer.userId) {
         options = (
             <div>
                 <EditProfileModal />
