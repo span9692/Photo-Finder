@@ -35,7 +35,7 @@ function Splash() {
             <div class='wrapper'>
                 <div className='splash'>
                     <div class='tagline'>
-                        <span class='caption1 style1'> The Perfect</span>
+                        <span class='caption1 style1'>Capture The Perfect</span>
                         <span class='caption2 style1'>Moment With Us!</span>
                         <div class='get-started'>
                             <NavLink to='/photographers'><button class='start-button'>Get Started</button></NavLink>
