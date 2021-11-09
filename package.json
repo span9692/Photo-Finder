@@ -1,0 +1,26 @@
+{
+  "name": "photo-finder",
+  "version": "1.0.0",
+  "description": "This website is a clone of [airbnb.com](https://www.airbnb.com/).",
+  "main": "index.js",
+  "scripts": {
+    "heroku-postbuild": "npm run build --prefix frontend",
+    "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
+    "dev:backend": "npm install --prefix backend start",
+    "dev:frontend": "npm install --prefix frontend start",
+    "sequelize": "npm run --prefix backend sequelize",
+    "sequelize-cli": "npm run --prefix backend sequelize-cli",
+    "start": "npm start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/span9692/Photo-Finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/span9692/Photo-Finder/issues"
+  },
+  "homepage": "https://github.com/span9692/Photo-Finder#readme"
+}
