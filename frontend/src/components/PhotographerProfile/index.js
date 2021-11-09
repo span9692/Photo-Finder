@@ -1,14 +1,21 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import DeleteModal from '../DeletePhotographer';
 import EditProfileModal from '../EditProfileModal';
 import './profile.css'
+import { getPhotographer } from '../../store/photographer'
 
 function PhotographerProfile() {
     const { photographerId } = useParams()
+    const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const photographerList = useSelector(state => state.photographer)
     const currentPhotographer = photographerList[photographerId]
+
+    useEffect(() => {
+        dispatch(getPhotographer())
+    }, [dispatch])
 
     let options;
     if(!user) {
