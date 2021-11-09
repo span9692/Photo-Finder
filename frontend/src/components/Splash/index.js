@@ -38,7 +38,7 @@ function Splash() {
                         <span class='caption1 style1'>Capture The Perfect</span>
                         <span class='caption2 style1'>Moment With Us!</span>
                         <div class='get-started'>
-                            <NavLink to='/home'><button class='start-button'>Get Started</button></NavLink>
+                            <NavLink to='/photographers'><button class='start-button'>Get Started</button></NavLink>
                         </div>
                         <div class='quote'>
                             <div id='quote1'>{quote[0]}</div>

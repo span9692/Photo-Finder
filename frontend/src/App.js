@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Home from './components/Home'
+import Photographers from './components/Photographers'
 import Splash from './components/Splash'
 import PhotographerForm from "./components/PhotographerForm";
 import PhotographerProfile from "./components/PhotographerProfile";
@@ -24,8 +24,8 @@ function App() {
         <Route exact path='/'>
           <Splash />
         </Route>
-        <Route path='/home'>
-          <Home />
+        <Route exact path='/photographers'>
+          <Photographers />
         </Route>
         <Route path='/post'>
           <PhotographerForm />

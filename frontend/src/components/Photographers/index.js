@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getPhotographer } from '../../store/photographer'
 
 
-function Home() {
+function Photographers() {
     const dispatch = useDispatch();
 
     const photographer = useSelector(state => state.photographer)
@@ -38,4 +38,4 @@ return (
 )
 }
 
-export default Home;
+export default Photographers;

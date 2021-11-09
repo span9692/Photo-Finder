@@ -43,7 +43,7 @@ const PhotographerForm = () => {
 
         await dispatch(addPhotographer(newPhotographer));
         reset();
-        history.push('/home')
+        history.push('/photographers')
     };
 
     return (
