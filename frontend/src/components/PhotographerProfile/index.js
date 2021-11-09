@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
+import EditProfileModal from '../EditProfileModal';
 import './profile.css'
 
 function PhotographerProfile() {
@@ -7,13 +8,13 @@ function PhotographerProfile() {
     const photographerList = useSelector(state => state.photographer)
     const user = useSelector(state => state.session.user)
     const currentPhotographer = photographerList[photographerId]
-    console.log(currentPhotographer)
+    // console.log(currentPhotographer)
 
     let options;
     if (user.id === currentPhotographer.userId) {
         options = (
             <div>
-                <button>Edit</button>
+                <EditProfileModal />
                 <button>Delete</button>
             </div>
         )
@@ -54,7 +55,7 @@ function PhotographerProfile() {
                     <div>
                         Biography: <br></br>{currentPhotographer.biography}
                     </div>
-                    <div class='test'>
+                    <div class='options'>
                         {options}
                     </div>
                 </div>
