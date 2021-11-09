@@ -15,7 +15,7 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <div class='become-photographer'>
         <div>
-          <button><Link to='/post'>Become a Photographer</Link></button>
+          <button class='become-a-photographer'><Link class='post-photographer' to='/post'>Become a Photographer</Link></button>
         </div>
         <div>
           <ProfileButton user={sessionUser} />

@@ -5,7 +5,7 @@
     width:100%;
     position: fixed;
     z-index: 2;
-    background-color: white;
+    background-color: grey;
     top: 0;
     left: 0;
 }
@@ -97,7 +97,8 @@
     color: rgb(1, 5, 4);
     text-decoration: none;
     font-size: 20px;
-    /* margin-left: 100px; */
+    color:white;
+    margin-left: 50px;
 }
 
 .home-button:hover {
@@ -105,7 +106,19 @@
 }
 
 .login-button {
-    color: black;
+    color: white;
     font-size: 20px;
     font-weight: bold;
+}
+
+.become-a-photographer {
+    background-color: grey;
+    color:white;
+    font-weight: bold;
+}
+
+.post-photographer {
+    background-color: grey;
+    color:white;
+    text-decoration: none;
 }
