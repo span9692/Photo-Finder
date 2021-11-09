@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const GET_PHOTOGRAPHERS = 'photographers/GET_PHOTOGRAPHERS'
 const NEW_PHOTOGRAPHER = 'photographer/NEW_PHOTOGRAPHER'
 const EDIT_PHOTOGRAPHER = 'photograph/EDIT_PHOTOGRAPHER'
+const REMOVE_PHOTOGRAPHER = 'photograph/REMOVE_PHOTOGRAPHER'
 
 const showPhotographer = (data) => {
     return {
@@ -25,15 +26,31 @@ const modifyPhotographer = (data) => {
     }
 }
 
+const removePhotographer = (data) => {
+    return {
+        type: REMOVE_PHOTOGRAPHER,
+        data
+    }
+}
+
+export const deletePhotographer = (data) => async dispatch => {
+    const response = await csrfFetch(`/api/photographers/${data}`, {
+        method:"DELETE"
+    })
+    if (response.ok) {
+        const updated = await response.json();
+        dispatch(removePhotographer(data))
+    }
+}
+
 export const updatePhotographer = (data) => async dispatch => {
-    console.log(data.id)
+    // console.log(data.id)
 
     const response = await csrfFetch(`/api/photographers/${data.id}`, {
         method:"PUT",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(data)
     })
-    // console.log('THIS IS THE RESPONSE,', response)
     if (response.ok) {
         const updated = await response.json();
         dispatch(modifyPhotographer(updated))
@@ -71,6 +88,10 @@ const photographerReducer = (state = {}, action) => {
         case EDIT_PHOTOGRAPHER:
             newState = {...state}
             newState[action.data.id] = action.data
+            return newState;
+        case REMOVE_PHOTOGRAPHER:
+            newState = {...state}
+            newState[action.data] = null;
             return newState;
         default:
             return state;

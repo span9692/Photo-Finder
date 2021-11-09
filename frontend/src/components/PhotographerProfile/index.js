@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
+import DeleteModal from '../DeletePhotographer';
 import EditProfileModal from '../EditProfileModal';
 import './profile.css'
 
@@ -14,11 +15,11 @@ function PhotographerProfile() {
         options = (
             <div></div>
         )
-    } else if (user.id === currentPhotographer.userId) {
+    } else if (user.id === currentPhotographer?.userId) {
         options = (
             <div>
                 <EditProfileModal />
-                <button>Delete</button>
+                <DeleteModal />
             </div>
         )
     } else {
@@ -40,23 +41,23 @@ function PhotographerProfile() {
             <div class='container'>
                 <div class='left-border'></div>
                 <div>
-                    <img class='profile-pic' src={currentPhotographer.profilePic}></img>
+                    <img class='profile-pic' src={currentPhotographer?.profilePic}></img>
                 </div>
                 <div class='profile-info'>
                     <div>
-                        Name: <br></br>{currentPhotographer.firstName} {currentPhotographer.lastName}
+                        Name: <br></br>{currentPhotographer?.firstName} {currentPhotographer?.lastName}
                     </div>
                     <br></br>
                     <div>
-                        Location: <br></br>{currentPhotographer.city}, {currentPhotographer.state}
+                        Location: <br></br>{currentPhotographer?.city}, {currentPhotographer?.state}
                     </div>
                     <br></br>
                     <div>
-                        Rate: <br></br>{'$'}{currentPhotographer.price}/hr
+                        Rate: <br></br>{'$'}{currentPhotographer?.price}/hr
                     </div>
                     <br></br>
                     <div>
-                        Biography: <br></br>{currentPhotographer.biography}
+                        Biography: <br></br>{currentPhotographer?.biography}
                     </div>
                     <div class='options'>
                         {options}
