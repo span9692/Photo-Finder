@@ -91,7 +91,7 @@ const photographerReducer = (state = {}, action) => {
             return newState;
         case REMOVE_PHOTOGRAPHER:
             newState = {...state}
-            newState[action.data] = null;
+            delete newState[action.data];
             return newState;
         default:
             return state;

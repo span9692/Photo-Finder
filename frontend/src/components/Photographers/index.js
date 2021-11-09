@@ -32,7 +32,7 @@ return (
                         </div>
                         <div>
                             <div>
-                                {profile[1]?.city} {profile[1]?.state}
+                                {profile[1]?.city}, {profile[1]?.state}
                             </div>
                             {/* {'$'}{profile[1]?.price}/hr */}
                         </div>
