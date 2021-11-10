@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import photoReducer from './photos';
 import photographerReducer from './photographer'
 import reviewReducer from './review';
+import bookingReducer from './booking';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     photo: photoReducer,
     photographer: photographerReducer,
-    review: reviewReducer
+    review: reviewReducer,
+    booking: bookingReducer
 });
 
 let enhancer;

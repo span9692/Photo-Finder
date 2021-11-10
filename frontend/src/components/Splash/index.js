@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 let lines = [['"Photography is the story I fail to put into words."', "-Destin Sparks"],
 ['"There is one thing the photo must contain - the humanity of the moment."', '-Robert Frank'],
@@ -38,7 +38,7 @@ function Splash() {
                         <span class='caption1 style1'>Capture The Perfect</span>
                         <span class='caption2 style1'>Moment With Us!</span>
                         <div class='get-started'>
-                            <NavLink to='/photographers'><button class='start-button'>Get Started</button></NavLink>
+                            <Link to='/photographers'><button class='start-button'>Get Started</button></Link>
                         </div>
                         <div class='quote'>
                             <div id='quote1'>{quote[0]}</div>

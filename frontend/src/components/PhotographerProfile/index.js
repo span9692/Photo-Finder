@@ -5,6 +5,7 @@ import DeleteModal from '../DeletePhotographer';
 import EditProfileModal from '../EditProfileModal';
 import './profile.css'
 import { getPhotographer } from '../../store/photographer'
+import BookingModal from '../BookingModal';
 
 function PhotographerProfile() {
     const { photographerId } = useParams()
@@ -36,7 +37,7 @@ function PhotographerProfile() {
     } else {
         options = (
             <div>
-                <button>Book</button><button>Leave a Review</button>
+                <BookingModal />
             </div>
         )
     }
