@@ -1,5 +1,5 @@
-import React, {useState } from 'react';
-import {Modal} from '../../context/Modal'
+import React, { useState } from 'react';
+import { Modal } from '../../context/Modal'
 import BookingForm from './BookingForm'
 
 function BookingModal() {
@@ -7,7 +7,7 @@ function BookingModal() {
 
     return (
         <>
-            <button class='profile-buttons' onClick={()=>setShowModal(true)}>Book</button>
+            <button class='profile-buttons' onClick={() => setShowModal(true)}>Book</button>
             {showModal && (
                 <Modal class='delete-modal' onClose={() => setShowModal(false)}>
                     <BookingForm />
