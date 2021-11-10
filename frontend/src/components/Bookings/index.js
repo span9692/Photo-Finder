@@ -10,11 +10,19 @@ function Bookings () {
     const [load, setLoad] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
-    const user = useSelector(state=>state.session.user.id)
+    const checkUser = useSelector(state=>state.session)
+    let user;
+    // const user = useSelector(state=>state.session.user.id)
     const bookings = useSelector(state=>Object.values(state.booking))
     const photographer = useSelector(state=> state.photographer)
 
-    if(!user) history.push('/photographers')
+    if(checkUser.user) {
+        if(checkUser.user.id) {
+            user = checkUser.user.id;
+        }
+    } else {
+        history.push('/photographers')
+    }
 
     let bookedBy = [];
     let booked = [];
