@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import DeleteModal from '../DeletePhotographer';
@@ -6,20 +6,32 @@ import EditProfileModal from '../EditProfileModal';
 import './profile.css'
 import { getPhotographer } from '../../store/photographer'
 import BookingModal from '../BookingModal';
+import { getBooking } from '../../store/booking'
 
 function PhotographerProfile() {
     const { photographerId } = useParams()
+    // const x = parseInt(photographerId, 10)
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const photographerList = useSelector(state => state.photographer)
+    const bookings = useSelector(state => Object.values(state.booking))
     const currentPhotographer = photographerList[photographerId]
+
+    let flag = false;
+
+    bookings.forEach(booking => {
+        if (user.id === booking.userId && photographerId == booking.photographerId) {
+            flag = true;
+        }
+    })
 
     useEffect(() => {
         dispatch(getPhotographer())
+        dispatch(getBooking())
     }, [dispatch])
 
     let options;
-    if(!user) {
+    if (!user) {
         options = (
             <div></div>
         )
@@ -34,10 +46,16 @@ function PhotographerProfile() {
                 </div>
             </div>
         )
-    } else {
+    } else if (!flag) {
         options = (
             <div>
                 <BookingModal />
+            </div>
+        )
+    } else if (flag) {
+        options = (
+            <div>
+                <button class='profile-buttons-disabled' disabled='true'>Booked !!</button>
             </div>
         )
     }

@@ -44,7 +44,6 @@ export const deletePhotographer = (data) => async dispatch => {
 }
 
 export const updatePhotographer = (data) => async dispatch => {
-    // console.log(data.id)
 
     const response = await csrfFetch(`/api/photographers/${data.id}`, {
         method:"PUT",

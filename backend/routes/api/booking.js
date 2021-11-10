@@ -8,7 +8,11 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
-// grabbing photos from our photos database
+router.get('/', asyncHandler(async(req, res) => {
+    const appointments = await Appointment.findAll();
+    res.json(appointments)
+}))
+
 router.post('/', asyncHandler(async(req, res) => {
     const {userId, photographerId, date, hours} = req.body;
 
