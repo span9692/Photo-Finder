@@ -9,7 +9,7 @@ module.exports = {
       Example:
       */
     return queryInterface.bulkInsert('Appointments', [
-      {userId: 1, photographerId: 1, startTime: '2021-03-27 08:30:00', endTime: '2021-03-27 09:30:00', createdAt: new Date(), updatedAt:new Date()}
+      {userId: 1, photographerId: 6, date: '2021-11-28', hours: 4, createdAt: new Date(), updatedAt:new Date()}
     ], {});
   },
 

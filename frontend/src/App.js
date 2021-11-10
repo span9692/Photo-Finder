@@ -8,7 +8,6 @@ import Photographers from './components/Photographers'
 import Splash from './components/Splash'
 import PhotographerForm from "./components/PhotographerForm";
 import PhotographerProfile from "./components/PhotographerProfile";
-import Bookings from "./components/Bookings";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,9 +32,6 @@ function App() {
         </Route>
         <Route path='/photographers/:photographerId'>
           <PhotographerProfile />
-        </Route>
-        <Route path='/bookings'>
-          <Bookings />
         </Route>
       </Switch>
     </div>

@@ -18,13 +18,13 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {model:'Photographers'}
       },
-      startTime: {
+      date: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
-      endTime: {
+      hours: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
