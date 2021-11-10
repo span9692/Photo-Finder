@@ -10,7 +10,6 @@ import { getBooking } from '../../store/booking'
 
 function PhotographerProfile() {
     const { photographerId } = useParams()
-    // const x = parseInt(photographerId, 10)
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const photographerList = useSelector(state => state.photographer)
@@ -18,13 +17,13 @@ function PhotographerProfile() {
     const currentPhotographer = photographerList[photographerId]
 
     let flag = false;
-
-    bookings.forEach(booking => {
-        if (user.id === booking.userId && photographerId == booking.photographerId) {
-            flag = true;
-        }
-    })
-
+    if (user) {
+        bookings.forEach(booking => {
+            if (user.id === booking.userId && photographerId == booking.photographerId) {
+                flag = true;
+            }
+        })
+    }
     useEffect(() => {
         dispatch(getPhotographer())
         dispatch(getBooking())

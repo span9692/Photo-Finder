@@ -24,4 +24,13 @@ router.post('/', asyncHandler(async(req, res) => {
     res.json(appointment);
 }))
 
+router.delete('/:id', asyncHandler(async(req, res) => {
+    console.log('WE IN THE BACKEND AGAIN')
+    const id = req.params.id
+
+    let book = await Appointment.findByPk(id)
+    await book.destroy()
+    res.json({message:'Booking Cancelled'})
+}))
+
 module.exports = router;

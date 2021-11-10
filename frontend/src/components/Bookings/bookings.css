@@ -1,0 +1,15 @@
+.booking-title {
+    width: 100%;
+    background-color: green;
+    text-align:center;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.whole {
+    display: flex;
+}
+
+.half {
+    width: 50%;
+}
