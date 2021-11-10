@@ -80,18 +80,13 @@ function EditProfileForm() {
                         />
                     </div>
                     <div class='formfield'>
-                        <label htmlFor='biography'>Biography:</label>
-                        <input
+                        <label htmlFor='biography'>Biography</label>
+                        <textarea
                             id='biography'
                             type='text'
                             onChange={(e) => setBiography(e.target.value)}
-                            value={biography}
-                        />
+                            value={biography}></textarea>
                     </div>
-                    {/* <div>
-                        <label htmlFor='biography'>Biography</label>
-                        <textarea id='biography'></textarea>
-                    </div> */}
                     <div class='formfield'>
                         <label htmlFor='city'>City:</label>
                         <input
