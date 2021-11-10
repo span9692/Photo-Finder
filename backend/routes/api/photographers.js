@@ -29,7 +29,7 @@ const validatePhotographer = [
         .withMessage('Please enter your State.'),
     check('price')
         .exists({ checkFalsy: true })
-        .withMessage('Please enter your Rate.'),
+        .withMessage('Please enter your Price.'),
     handleValidationErrors,
 ];
 

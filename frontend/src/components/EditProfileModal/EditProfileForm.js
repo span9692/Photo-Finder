@@ -47,7 +47,7 @@ function EditProfileForm() {
     return (
             <>
                 <form class='modal-form' onSubmit={handleSubmit}>
-                    <ul class='no-bullet'>
+                    <ul class='form-error'>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
                     ))}

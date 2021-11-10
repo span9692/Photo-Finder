@@ -1,0 +1,56 @@
+.photographer-form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+
+.form-container {
+    display:flex;
+    margin-top: 20px;
+}
+
+.error-message {
+    color:red;
+    margin: auto;
+}
+
+.mainbar {
+    width: 20%;
+    justify-content: center;
+}
+
+.sidebar {
+    width: 40%;
+}
+
+.d1 {
+    margin-left: 5em;
+    font-size: 18px;
+}
+
+.d2 {
+    margin-bottom: 1em;
+}
+
+.d3 {
+    margin-left: 10em;
+    margin-bottom: 15px;
+}
+
+.d4 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.d5 {
+    margin-left: 5em;
+}
+
+.listing-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 50px;
+}

@@ -90,7 +90,7 @@ ul {
 .formfield {
     font-weight: bold;
     margin-left: 9px;
-    margin-bottom: 3px;
+    margin-bottom: 10px;
 }
 
 .formfield-button{
@@ -107,4 +107,10 @@ ul {
 
 .areyou {
     margin-bottom: 10px;
+}
+
+.form-error {
+    margin-left: 1em;
+    color: red;
+    font-weight: bold;
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { addPhotographer } from '../../store/photographer'
+import './photographerForm.css';
 
 const PhotographerForm = () => {
     const sessionUser = useSelector(state => state.session.user)
@@ -14,7 +15,8 @@ const PhotographerForm = () => {
     const [biography, setBiography] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState();
+    const [errors, setErrors] = useState([]);
 
     const reset = () => {
         setFirstName("");
@@ -23,7 +25,8 @@ const PhotographerForm = () => {
         setBiography('');
         setCity('');
         setState('');
-        setPrice(0)
+        setPrice();
+        setErrors([]);
     }
 
 
@@ -41,89 +44,103 @@ const PhotographerForm = () => {
             price
         };
 
-        await dispatch(addPhotographer(newPhotographer));
-        reset();
-        history.push('/photographers')
+        await dispatch(addPhotographer(newPhotographer)).catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors)
+            }
+        );
+        // history.push('/photographers')
     };
 
     return (
         <div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <form onSubmit={onSubmit}>
-                <div>
-                    <label htmlFor='firstName'>First Name:</label>
-                    <input
-                        id='firstName'
-                        type='text'
-                        onChange={(e) => setFirstName(e.target.value)}
-                        value={firstName}
-                    />
+            <br></br><br></br><br></br><br></br>
+            <div class='listing-title'>Create Your Listing</div>
+            <div class='form-container'>
+                <div class='sidebar'></div>
+                <div class='mainbar'>
+                    <form class='photographer-form' onSubmit={onSubmit}>
+                        <ul>
+                            {errors.map((error, idx) => (
+                                <li class='d5 error-message' key={idx}>{error}</li>
+                            ))}
+                        </ul>
+                        <div class='d1 d2'>
+                            <label class='d4' htmlFor='firstName'>First Name:</label>
+                            <br></br>
+                            <input
+                                id='firstName'
+                                type='text'
+                                onChange={(e) => setFirstName(e.target.value)}
+                                value={firstName}
+                            />
+                        </div>
+                        <div class='d1 d2'>
+                            <label class='d4' htmlFor='lastName'>Last Name:</label>
+                            <br></br>
+                            <input
+                                id='lastName'
+                                type='text'
+                                onChange={(e) => setLastName(e.target.value)}
+                                value={lastName}
+                            />
+                        </div>
+                        <div class='d1 d2'>
+                            <label class='d4' htmlFor='profilePic'>Profile Picture URL:</label>
+                            <br></br>
+                            <input
+                                id='profilePic'
+                                type='text'
+                                onChange={(e) => setProfilePic(e.target.value)}
+                                value={profilePic}
+                            />
+                        </div>
+                        <div class='d1 d2'>
+                            <label class='d4' htmlFor='biography'>Biography</label>
+                            <br></br>
+                            <textarea id='biography'
+                                type='text'
+                                onChange={(e) => setBiography(e.target.value)}
+                                value={biography}></textarea>
+                        </div>
+                        <div class='d1 d2'>
+                            <label class='d4' htmlFor='city'>City:</label>
+                            <br></br>
+                            <input
+                                id='city'
+                                type='text'
+                                onChange={(e) => setCity(e.target.value)}
+                                value={city}
+                            />
+                        </div>
+                        <div class='d1 d2'>
+                            <label class='d4' htmlFor='state'>State:</label>
+                            <br></br>
+                            <input
+                                id='state'
+                                type='text'
+                                onChange={(e) => setState(e.target.value)}
+                                value={state}
+                            />
+                        </div>
+                        <div class='d1 d2'>
+                            <label class='d4' htmlFor='price'>Price:</label>
+                            <br></br>
+                            <input
+                                id='price'
+                                type='integer'
+                                onChange={(e) => setPrice(e.target.value)}
+                                value={price}
+                            />
+                        </div>
+                        <div>
+                            <button class='d3' type='submit'>Submit</button>
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <label htmlFor='lastName'>Last Name:</label>
-                    <input
-                        id='lastName'
-                        type='text'
-                        onChange={(e) => setLastName(e.target.value)}
-                        value={lastName}
-                    />
-                </div>
-                <div>
-                    <label htmlFor='profilePic'>Profile Picture URL:</label>
-                    <input
-                        id='profilePic'
-                        type='text'
-                        onChange={(e) => setProfilePic(e.target.value)}
-                        value={profilePic}
-                    />
-                </div>
-                <div>
-                    <label htmlFor='biography'>Biography:</label>
-                    <input
-                        id='biography'
-                        type='text'
-                        onChange={(e) => setBiography(e.target.value)}
-                        value={biography}
-                    />
-                </div>
-                {/* <div>
-                        <label htmlFor='biography'>Biography</label>
-                        <textarea id='biography'></textarea>
-                    </div> */}
-                <div>
-                    <label htmlFor='city'>City:</label>
-                    <input
-                        id='city'
-                        type='text'
-                        onChange={(e) => setCity(e.target.value)}
-                        value={city}
-                    />
-                </div>
-                <div>
-                    <label htmlFor='state'>State:</label>
-                    <input
-                        id='state'
-                        type='text'
-                        onChange={(e) => setState(e.target.value)}
-                        value={state}
-                    />
-                </div>
-                <div>
-                    <label htmlFor='price'>Price:</label>
-                    <input
-                        id='price'
-                        type='integer'
-                        onChange={(e) => setPrice(e.target.value)}
-                        value={price}
-                    />
-                </div>
-                <div>
-                    <button type='submit'>Submit</button>
-                </div>
-            </form>
+                <div class='sidebar'></div>
+            </div>
         </div>
     )
 }
