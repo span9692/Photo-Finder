@@ -114,3 +114,46 @@ ul {
     color: red;
     font-weight: bold;
 }
+
+.textbox-width {
+    width: 1rem;
+}
+
+.box1 {
+    display:flex;
+    justify-content: center;
+    position: relative;
+}
+
+.box2 {
+    border-left: 5px;
+}
+
+.formfield1 {
+    font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.profile-buttons1 {
+    background-color: rgb(230, 157, 230);
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+    width: 100px;
+    height: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.profile-buttons2 {
+    background-color: rgb(230, 157, 230);
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+    width: 100px;
+    height: 30px;
+    margin-left: 10em;
+    margin-bottom: 15px;
+    cursor: pointer;
+}

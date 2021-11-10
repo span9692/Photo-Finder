@@ -139,7 +139,7 @@ const PhotographerForm = () => {
                             />
                         </div>
                         <div>
-                            <button class='d3' type='submit'>Submit</button>
+                            <button class='profile-buttons2' type='submit'>Submit</button>
                         </div>
                     </form>
                 </div>
