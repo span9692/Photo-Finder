@@ -53,8 +53,8 @@ ul {
     border: 1px solid black;
     margin-right: 20px;
     margin-bottom: 20px;
-    background-color: rgb(179, 153, 153);
-    /* background-color: rgba(214, 188, 177, 0.473); */
+    /* background-color: rgb(179, 153, 153); */
+    background-color:black
 }
 
 .portraits {
@@ -64,7 +64,7 @@ ul {
 
 .info {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     text-decoration: none;
 }
 
@@ -77,6 +77,11 @@ ul {
     text-decoration: none;
     color: black;
     font-weight: 600;
+}
+
+.info-width {
+    margin: 0px 15px;
+    color: white;
 }
 
 .delete-modal {
