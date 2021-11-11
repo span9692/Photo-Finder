@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/span9692/Photo-Finder/issues"
   },
-  "homepage": "https://github.com/span9692/Photo-Finder#readme"
+  "homepage": "https://github.com/span9692/Photo-Finder#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
