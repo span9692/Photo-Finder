@@ -38,6 +38,8 @@ function PhotographerProfile() {
         }
     })
 
+    console.log(rev)
+
     useEffect(() => {
         dispatch(getPhotographer())
         dispatch(showReviews())
@@ -129,8 +131,19 @@ function PhotographerProfile() {
             <div></div>
             <div className='review'>
                 {rev.map(review => (
-                    <div key={review.id}>
-                        {review.review}
+                    <div key={review.id} className='rev1 review-box'>
+                        <div>
+                            {review.review}
+                        </div>
+                        <div className='r2'>
+                            <div className='review-detail'>
+                                posted by: {review.User.username}
+                            </div>
+                            <div>
+                                <button>edit</button>
+                                <button>delete</button>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>

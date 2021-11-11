@@ -10,7 +10,7 @@ const router = express.Router();
 
 // grabbing photos from our photos database
 router.get('/', asyncHandler(async(req, res) => {
-    const reviews = await Review.findAll()
+    const reviews = await Review.findAll({include:[User, Photographer]})
     res.json(reviews);
 }))
 

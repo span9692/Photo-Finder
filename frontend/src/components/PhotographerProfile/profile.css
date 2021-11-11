@@ -79,7 +79,7 @@
 }
 
 .enter-review {
-    width: 800px;
+    width: 700px;
     height: 50px;
     resize: none;
 }
@@ -87,4 +87,26 @@
 .review {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.review-box {
+    border: 1px solid black;
+    width: 600px;
+}
+
+.rev1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-detail {
+    font-size: 13px;
+}
+
+.r2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
