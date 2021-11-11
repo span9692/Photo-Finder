@@ -25,7 +25,6 @@ router.post('/', asyncHandler(async(req, res) => {
 }))
 
 router.delete('/:id', asyncHandler(async(req, res) => {
-    console.log('WE IN THE BACKEND AGAIN')
     const id = req.params.id
 
     let book = await Appointment.findByPk(id)

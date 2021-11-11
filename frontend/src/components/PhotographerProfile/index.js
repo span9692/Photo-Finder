@@ -9,6 +9,7 @@ import BookingModal from '../BookingModal';
 import { getBooking } from '../../store/booking'
 
 function PhotographerProfile() {
+    const [review, setReview] = useState('')
     const { photographerId } = useParams()
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
@@ -68,7 +69,6 @@ function PhotographerProfile() {
             <br></br>
             <br></br>
             <div class='container'>
-                <div class='left-border'></div>
                 <div>
                     <img class='profile-pic' src={currentPhotographer?.profilePic}></img>
                 </div>
@@ -94,7 +94,15 @@ function PhotographerProfile() {
                 </div>
             </div>
             <div>
-
+                <form>
+                    <label htmlFor='review'>Write a Review:</label>
+                    <textarea
+                        id='review'
+                        type='text'
+                        onChange={(e) => setReview(e.target.value)}
+                        value={review}
+                    />
+                </form>
             </div>
         </div>
     );
