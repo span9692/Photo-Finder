@@ -134,7 +134,7 @@ function PhotographerProfile() {
                 {rev.map(review => (
                     <div key={review.id} className='rev1 review-box'>
                         <div className='review-context'>
-                            - {review.review}
+                            <span className='indentation'>-</span> <div>{review.review}</div>
                         </div>
                         <div className='r2'>
                             <div className='review-detail'>

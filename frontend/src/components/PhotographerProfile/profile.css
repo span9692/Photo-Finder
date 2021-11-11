@@ -107,8 +107,13 @@
 }
 
 .review-box {
-    border: 1px solid black;
+    border-bottom: 1px dashed black;
     width: 600px;
+    padding: 10px;
+}
+
+.review-box:last-child {
+    border-bottom: none;
 }
 
 .rev1 {
@@ -121,7 +126,12 @@
 }
 
 .review-context {
+    display: flex;
     font-size: 20px;
+}
+
+.indentation {
+    margin-right: 8px;
 }
 
 .r2 {

@@ -45,8 +45,6 @@ function Bookings () {
             <br></br>
             <br></br>
             <br></br>
-            <br></br>
-            <br></br>
             <div className='booking-title'>Bookings</div>
             <div className='whole'>
                 <div className='side'></div>
