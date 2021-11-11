@@ -81,7 +81,7 @@ function PhotographerProfile() {
             </div>
         )
         reviewSection = (
-            <ReviewField />
+            <ReviewField photographerId={photographerId} userId={user.id}/>
         )
     } else if (flag) {
         options = (
@@ -90,7 +90,7 @@ function PhotographerProfile() {
             </div>
         )
         reviewSection = (
-            <ReviewField />
+            <ReviewField photographerId={photographerId} userId={user.id}/>
         )
     }
     return (
@@ -132,8 +132,8 @@ function PhotographerProfile() {
             <div className='review'>
                 {rev.map(review => (
                     <div key={review.id} className='rev1 review-box'>
-                        <div>
-                            {review.review}
+                        <div className='review-context'>
+                            - {review.review}
                         </div>
                         <div className='r2'>
                             <div className='review-detail'>
