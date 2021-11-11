@@ -51,8 +51,7 @@ export const deleteBooking = (data) => async dispatch => {
     })
     if (response.ok) {
         const deleted = await response.json();
-        dispatch(removeBooking(deleted))
-        return deleted;
+        dispatch(removeBooking(data))
     }
 }
 

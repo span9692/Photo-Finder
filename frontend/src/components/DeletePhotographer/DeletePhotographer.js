@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { deletePhotographer } from '../../store/photographer'
 import {useParams, useHistory} from 'react-router-dom'
 
