@@ -21,14 +21,11 @@ function PhotographerProfile() {
     const currentPhotographer = photographerList[photographerId]
 
 
-    if (!(photographerId in photographerList)) {
-        history.push('/photographers')
-    }
 
     let flag = false;
     if (user) {
         bookings.forEach(booking => {
-            if (user.id === booking.userId && photographerId == booking.photographerId) {
+            if (user.id === booking.userId && +photographerId === booking.photographerId) {
                 flag = true;
             }
         })
@@ -36,7 +33,7 @@ function PhotographerProfile() {
 
     let rev = [];
     reviews.forEach(review => {
-        if (review.photographerId == photographerId) {
+        if (review.photographerId === +photographerId) {
             rev.push(review)
         }
     })
@@ -46,6 +43,11 @@ function PhotographerProfile() {
         dispatch(showReviews())
         dispatch(getBooking())
     }, [dispatch])
+
+    let array = {...photographerList}
+    if (+photographerId > array.length) {
+        history.push('/photographers')
+    }
 
     let options;
     let reviewSection;
@@ -125,9 +127,13 @@ function PhotographerProfile() {
             </div>
             {reviewSection}
             <div></div>
-            {rev.map(review => (
-                <div>{review.review}</div>
-            ))}
+            <div className='review'>
+                {rev.map(review => (
+                    <div key={review.id}>
+                        {review.review}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
