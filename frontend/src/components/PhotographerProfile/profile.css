@@ -61,10 +61,20 @@
     margin-top: 2rem;
 }
 
+.review4{
+    display: flex;
+    margin-top: 5px;
+}
+
 .review-form {
     display: inline-flex;
     flex-direction: column;
+    font-size: 30px;
 
+}
+
+.character-count {
+    font-size: 15px;
 }
 
 .review-container {
@@ -76,10 +86,15 @@
 .review-submit-button {
     position: absolute;
     right: 0;
+    background-color: rgb(230, 157, 230);
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
 }
 
 .enter-review {
-    width: 800px;
+    width: 700px;
     height: 50px;
     resize: none;
 }
@@ -87,4 +102,38 @@
 .review {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.review-box {
+    border: 1px solid black;
+    width: 600px;
+}
+
+.rev1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-detail {
+    font-size: 13px;
+}
+
+.review-context {
+    font-size: 20px;
+}
+
+.r2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-delete-button {
+    background-color: rgb(230, 157, 230);
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
 }

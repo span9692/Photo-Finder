@@ -1,19 +1,28 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { addReview, showReviews } from '../../store/review'
 
-function ReviewField() {
+function ReviewField({photographerId, userId}) {
     const [review, setReview] = useState('')
     const [characters, setCharacters] = useState(0)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(showReviews())
+    }, [dispatch, review])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const newReview = {
-            // userId:
-            // photographerId:
+            userId,
+            photographerId,
             review
         }
 
-        // dispatchEvent(())
+        await dispatch(addReview(newReview))
+        setReview('')
+        setCharacters(0)
     }
 
     return (
@@ -29,8 +38,8 @@ function ReviewField() {
                         onChange={(e) => { setReview(e.target.value); setCharacters(e.target.value.length) }}
                         value={review}
                     />
-                    <div>
-                        <span>Characters: {characters}/1000</span>
+                    <div className='review4'>
+                        <span className='character-count'>Characters: {characters}/1000</span>
                         <button className='review-submit-button' type='submit'>Submit</button>
                     </div>
                 </div>

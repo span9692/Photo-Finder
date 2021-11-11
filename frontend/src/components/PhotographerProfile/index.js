@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import DeleteModal from '../DeletePhotographer';
 import EditProfileModal from '../EditProfileModal';
 import './profile.css'
@@ -9,15 +9,15 @@ import BookingModal from '../BookingModal';
 import { getBooking } from '../../store/booking'
 import ReviewField from '../ReviewField';
 import { showReviews } from '../../store/review';
+import DeleteReviewModal from '../DeleteReviewModal';
 
 function PhotographerProfile() {
     const { photographerId } = useParams()
     const dispatch = useDispatch()
-    const history = useHistory()
     const user = useSelector(state => state.session.user)
     const photographerList = useSelector(state => state.photographer)
     const bookings = useSelector(state => Object.values(state.booking))
-    const reviews = useSelector(state=>Object.values(state.review))
+    const reviews = useSelector(state => Object.values(state.review))
     const currentPhotographer = photographerList[photographerId]
 
 
@@ -38,19 +38,22 @@ function PhotographerProfile() {
         }
     })
 
+    console.log(rev)
+
     useEffect(() => {
         dispatch(getPhotographer())
         dispatch(showReviews())
         dispatch(getBooking())
     }, [dispatch])
 
-    let array = {...photographerList}
-    if (+photographerId > array.length) {
-        history.push('/photographers')
-    }
+    // let array = {...photographerList}
+    // if (+photographerId > array.length) {
+    //     history.push('/photographers')
+    // }
 
     let options;
     let reviewSection;
+
     if (!user) {
         options = (
             <div></div>
@@ -79,7 +82,7 @@ function PhotographerProfile() {
             </div>
         )
         reviewSection = (
-            <ReviewField />
+            <ReviewField photographerId={photographerId} userId={user.id} />
         )
     } else if (flag) {
         options = (
@@ -88,7 +91,7 @@ function PhotographerProfile() {
             </div>
         )
         reviewSection = (
-            <ReviewField />
+            <ReviewField photographerId={photographerId} userId={user.id} />
         )
     }
     return (
@@ -129,8 +132,19 @@ function PhotographerProfile() {
             <div></div>
             <div className='review'>
                 {rev.map(review => (
-                    <div key={review.id}>
-                        {review.review}
+                    <div key={review.id} className='rev1 review-box'>
+                        <div className='review-context'>
+                            - {review.review}
+                        </div>
+                        <div className='r2'>
+                            <div className='review-detail'>
+                                posted by: {review.User.username}
+                            </div>
+
+                            {user.id === review.userId ?
+                            <div><DeleteReviewModal reviewId={review.id} /></div>
+                            : <div></div>}
+                        </div>
                     </div>
                 ))}
             </div>
