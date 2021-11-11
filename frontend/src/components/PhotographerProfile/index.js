@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import DeleteModal from '../DeletePhotographer';
 import EditProfileModal from '../EditProfileModal';
 import './profile.css'
@@ -13,12 +13,17 @@ import { showReviews } from '../../store/review';
 function PhotographerProfile() {
     const { photographerId } = useParams()
     const dispatch = useDispatch()
+    const history = useHistory()
     const user = useSelector(state => state.session.user)
     const photographerList = useSelector(state => state.photographer)
     const bookings = useSelector(state => Object.values(state.booking))
     const reviews = useSelector(state=>Object.values(state.review))
     const currentPhotographer = photographerList[photographerId]
 
+
+    if (!(photographerId in photographerList)) {
+        history.push('/photographers')
+    }
 
     let flag = false;
     if (user) {
@@ -35,7 +40,6 @@ function PhotographerProfile() {
             rev.push(review)
         }
     })
-    console.log('rev', rev)
 
     useEffect(() => {
         dispatch(getPhotographer())
