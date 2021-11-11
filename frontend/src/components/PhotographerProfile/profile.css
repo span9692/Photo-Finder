@@ -83,3 +83,7 @@
     height: 50px;
     resize: none;
 }
+
+.review {
+    display: flex;
+}

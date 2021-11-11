@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import DeleteModal from '../DeletePhotographer';
 import EditProfileModal from '../EditProfileModal';
 import './profile.css'
@@ -13,6 +13,7 @@ import { showReviews } from '../../store/review';
 function PhotographerProfile() {
     const { photographerId } = useParams()
     const dispatch = useDispatch()
+    const history = useHistory()
     const user = useSelector(state => state.session.user)
     const photographerList = useSelector(state => state.photographer)
     const bookings = useSelector(state => Object.values(state.booking))
@@ -20,10 +21,11 @@ function PhotographerProfile() {
     const currentPhotographer = photographerList[photographerId]
 
 
+
     let flag = false;
     if (user) {
         bookings.forEach(booking => {
-            if (user.id === booking.userId && photographerId == booking.photographerId) {
+            if (user.id === booking.userId && +photographerId === booking.photographerId) {
                 flag = true;
             }
         })
@@ -31,17 +33,21 @@ function PhotographerProfile() {
 
     let rev = [];
     reviews.forEach(review => {
-        if (review.photographerId == photographerId) {
+        if (review.photographerId === +photographerId) {
             rev.push(review)
         }
     })
-    console.log('rev', rev)
 
     useEffect(() => {
         dispatch(getPhotographer())
         dispatch(showReviews())
         dispatch(getBooking())
     }, [dispatch])
+
+    let array = {...photographerList}
+    if (+photographerId > array.length) {
+        history.push('/photographers')
+    }
 
     let options;
     let reviewSection;
@@ -121,9 +127,13 @@ function PhotographerProfile() {
             </div>
             {reviewSection}
             <div></div>
-            {rev.map(review => (
-                <div>{review.review}</div>
-            ))}
+            <div className='review'>
+                {rev.map(review => (
+                    <div key={review.id}>
+                        {review.review}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
