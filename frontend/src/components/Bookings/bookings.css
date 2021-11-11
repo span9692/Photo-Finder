@@ -1,15 +1,54 @@
 .booking-title {
     width: 100%;
-    background-color: green;
+    /* background-color: green; */
     text-align:center;
+    text-decoration: underline 5px black;
     font-weight: bold;
     font-size: 50px;
+    margin-bottom: 15px;
 }
 
 .whole {
     display: flex;
+    font-size: 25px;
 }
 
 .half {
     width: 50%;
+    margin-left: 3em;
+}
+
+.side {
+    width: 15%;
+}
+
+.text {
+    text-align: center;
+}
+
+tr > th,
+tr > td {
+    padding: 5px 20px;
+    /* border-spacing: 5px; */
+}
+
+/* tr > th {
+    text-decoration: underline;
+} */
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border: dashed grey;
+    border-width: 1px 0;
+}
+
+tr:first-child {
+    border-top: none
+}
+
+tr:last-child {
+    border-bottom: none
 }

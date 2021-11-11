@@ -36,8 +36,14 @@ function Navigation({ isLoaded }) {
       <ul class='no-bullet'>
         <li>
           <div class='homebar'>
-            <div >
+            <div>
               <Link class='home-button' exact to="/">Home</Link>
+            </div>
+            <div>
+              <Link class='home-button' to='/photographers'>Photographers</Link>
+            </div>
+            <div>
+              <Link class='home-button' to='/bookings'>Bookings</Link>
             </div>
             {isLoaded && sessionLinks}
           </div>

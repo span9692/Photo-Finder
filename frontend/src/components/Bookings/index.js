@@ -49,6 +49,7 @@ function Bookings () {
             <br></br>
             <div className='booking-title'>Bookings</div>
             <div className='whole'>
+                <div className='side'></div>
                 <div className='half'>
                     <table>
                         <tr>
@@ -61,7 +62,7 @@ function Bookings () {
                         <tr key={book[1]}>
                             <td>{photographer[book[0].photographerId].firstName} {photographer[book[0].photographerId].lastName}</td>
                             <td>{book[0].date}</td>
-                            <td>{book[0].hours}</td>
+                            <td className='text'>{book[0].hours}</td>
                             <td><DeleteBook id={book[1]}/></td>
                         </tr>
                         ))}
@@ -79,12 +80,13 @@ function Bookings () {
                         <tr key={book[1]}>
                             <td>{photographer[book[0].userId].firstName} {photographer[book[0].userId].lastName}</td>
                             <td>{book[0].date}</td>
-                            <td>{book[0].hours}</td>
+                            <td className='text'>{book[0].hours}</td>
                             <td><DeleteBook id={book[1]}/></td>
                         </tr>
                         ))}
                     </table>
                 </div>
+                <div className='side'></div>
             </div>
         </div>
     )
