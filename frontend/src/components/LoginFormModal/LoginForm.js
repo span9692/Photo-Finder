@@ -20,7 +20,7 @@ function LoginForm() {
   };
 
   const demoLogin = async () => {
-    const demoUser = { credential: 'Demo-lition', password: 'password' }
+    const demoUser = { credential: 'nwang', password: 'password' }
     await dispatch(sessionActions.login(demoUser))
   }
 
