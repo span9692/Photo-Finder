@@ -16,7 +16,7 @@ function SignupFormPage() {
     if (sessionUser) return <Redirect to="/" />;
 
     const demoLogin = async () => {
-        const demoUser = { credential: 'Demo-lition', password: 'password' }
+        const demoUser = { credential: 'nwang', password: 'password' }
         await dispatch(sessionActions.login(demoUser))
     }
 
