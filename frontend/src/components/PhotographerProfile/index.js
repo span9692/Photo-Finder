@@ -54,7 +54,7 @@ function PhotographerProfile() {
     } else if (flag) {
         options = (
             <div>
-                <button class='profile-buttons-disabled' disabled='true'>Booked !!</button>
+                <button class='profile-buttons-disabled' disabled={true}>Booked !!</button>
             </div>
         )
     }

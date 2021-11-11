@@ -18,16 +18,16 @@ const PhotographerForm = () => {
     const [price, setPrice] = useState();
     const [errors, setErrors] = useState([]);
 
-    const reset = () => {
-        setFirstName("");
-        setLastName("");
-        setProfilePic('');
-        setBiography('');
-        setCity('');
-        setState('');
-        setPrice();
-        setErrors([]);
-    }
+    // const reset = () => {
+    //     setFirstName("");
+    //     setLastName("");
+    //     setProfilePic('');
+    //     setBiography('');
+    //     setCity('');
+    //     setState('');
+    //     setPrice();
+    //     setErrors([]);
+    // }
 
 
     const onSubmit = async (e) => {
@@ -59,18 +59,18 @@ const PhotographerForm = () => {
     return (
         <div>
             <br></br><br></br><br></br><br></br>
-            <div class='listing-title'>Create Your Listing</div>
-            <div class='form-container'>
-                <div class='sidebar'></div>
-                <div class='mainbar'>
-                    <form class='photographer-form' onSubmit={onSubmit}>
+            <div className='listing-title'>Create Your Listing</div>
+            <div className='form-container'>
+                <div className='sidebar'></div>
+                <div className='mainbar'>
+                    <form className='photographer-form' onSubmit={onSubmit}>
                         <ul>
                             {errors.map((error, idx) => (
-                                <li class='d5 error-message' key={idx}>{error}</li>
+                                <li className='d5 error-message' key={idx}>{error}</li>
                             ))}
                         </ul>
-                        <div class='d1 d2'>
-                            <label class='d4' htmlFor='firstName'>First Name:</label>
+                        <div className='d1 d2'>
+                            <label className='d4' htmlFor='firstName'>First Name:</label>
                             <br></br>
                             <input
                                 id='firstName'
@@ -79,8 +79,8 @@ const PhotographerForm = () => {
                                 value={firstName}
                             />
                         </div>
-                        <div class='d1 d2'>
-                            <label class='d4' htmlFor='lastName'>Last Name:</label>
+                        <div className='d1 d2'>
+                            <label className='d4' htmlFor='lastName'>Last Name:</label>
                             <br></br>
                             <input
                                 id='lastName'
@@ -89,8 +89,8 @@ const PhotographerForm = () => {
                                 value={lastName}
                             />
                         </div>
-                        <div class='d1 d2'>
-                            <label class='d4' htmlFor='profilePic'>Profile Picture URL:</label>
+                        <div className='d1 d2'>
+                            <label className='d4' htmlFor='profilePic'>Profile Picture URL:</label>
                             <br></br>
                             <input
                                 id='profilePic'
@@ -99,16 +99,16 @@ const PhotographerForm = () => {
                                 value={profilePic}
                             />
                         </div>
-                        <div class='d1 d2'>
-                            <label class='d4' htmlFor='biography'>Biography</label>
+                        <div className='d1 d2'>
+                            <label className='d4' htmlFor='biography'>Biography</label>
                             <br></br>
                             <textarea id='biography'
                                 type='text'
                                 onChange={(e) => setBiography(e.target.value)}
                                 value={biography}></textarea>
                         </div>
-                        <div class='d1 d2'>
-                            <label class='d4' htmlFor='city'>City:</label>
+                        <div className='d1 d2'>
+                            <label className='d4' htmlFor='city'>City:</label>
                             <br></br>
                             <input
                                 id='city'
@@ -117,8 +117,8 @@ const PhotographerForm = () => {
                                 value={city}
                             />
                         </div>
-                        <div class='d1 d2'>
-                            <label class='d4' htmlFor='state'>State:</label>
+                        <div className='d1 d2'>
+                            <label className='d4' htmlFor='state'>State:</label>
                             <br></br>
                             <input
                                 id='state'
@@ -127,8 +127,8 @@ const PhotographerForm = () => {
                                 value={state}
                             />
                         </div>
-                        <div class='d1 d2'>
-                            <label class='d4' htmlFor='price'>Price:</label>
+                        <div className='d1 d2'>
+                            <label className='d4' htmlFor='price'>Price:</label>
                             <br></br>
                             <input
                                 id='price'
@@ -138,11 +138,11 @@ const PhotographerForm = () => {
                             />
                         </div>
                         <div>
-                            <button class='profile-buttons2' type='submit'>Submit</button>
+                            <button className='profile-buttons2' type='submit'>Submit</button>
                         </div>
                     </form>
                 </div>
-                <div class='sidebar'></div>
+                <div className='sidebar'></div>
             </div>
         </div>
     )

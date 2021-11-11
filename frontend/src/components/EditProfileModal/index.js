@@ -11,7 +11,7 @@ function EditProfileModal() {
             <button class='profile-buttons' onClick={() => setShowModal(true)}>Edit</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditProfileForm />
+                    <EditProfileForm setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>
