@@ -24,7 +24,7 @@ function Navigation({ isLoaded }) {
     );
   } else {
     sessionLinks = (
-      <div>
+      <div className='nav-buttons'>
         <LoginFormModal />
         <SignupFormModal />
       </div>
@@ -37,13 +37,13 @@ function Navigation({ isLoaded }) {
         <li>
           <div class='homebar'>
             <div>
-              <Link class='home-button' exact to="/">Home</Link>
+              <Link class='home-button path' exact to="/">Home</Link>
             </div>
             <div>
-              <Link class='home-button' to='/photographers'>Photographers</Link>
+              <Link class='home-button path' to='/photographers'>Photographers</Link>
             </div>
             <div>
-              <Link class='home-button' to='/bookings'>Bookings</Link>
+              <Link class='home-button path' to='/bookings'>Bookings</Link>
             </div>
             {isLoaded && sessionLinks}
           </div>

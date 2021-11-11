@@ -9,6 +9,7 @@ import Splash from './components/Splash'
 import PhotographerForm from "./components/PhotographerForm";
 import PhotographerProfile from "./components/PhotographerProfile";
 import Bookings from "./components/Bookings";
+import NotFound from "./components/NotFound"
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ function App() {
         </Route>
         <Route path='/bookings'>
           <Bookings />
+        </Route>
+        <Route>
+          <NotFound />
         </Route>
       </Switch>
     </div>

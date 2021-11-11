@@ -34,6 +34,7 @@ function ReviewField({photographerId, userId}) {
                         className='enter-review'
                         maxLength="1000"
                         id='review'
+                        placeholder='How was your experience...'
                         type='text'
                         onChange={(e) => { setReview(e.target.value); setCharacters(e.target.value.length) }}
                         value={review}
