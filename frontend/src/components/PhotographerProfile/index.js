@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import DeleteModal from '../DeletePhotographer';
@@ -7,16 +7,18 @@ import './profile.css'
 import { getPhotographer } from '../../store/photographer'
 import BookingModal from '../BookingModal';
 import { getBooking } from '../../store/booking'
+import ReviewField from '../ReviewField';
+import { showReviews } from '../../store/review';
 
 function PhotographerProfile() {
-    const [review, setReview] = useState('')
-    const [characters, setCharacters] = useState(0)
     const { photographerId } = useParams()
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const photographerList = useSelector(state => state.photographer)
     const bookings = useSelector(state => Object.values(state.booking))
+    const reviews = useSelector(state=>Object.values(state.review))
     const currentPhotographer = photographerList[photographerId]
+
 
     let flag = false;
     if (user) {
@@ -26,14 +28,28 @@ function PhotographerProfile() {
             }
         })
     }
+
+    let rev = [];
+    reviews.forEach(review => {
+        if (review.photographerId == photographerId) {
+            rev.push(review)
+        }
+    })
+    console.log('rev', rev)
+
     useEffect(() => {
         dispatch(getPhotographer())
+        dispatch(showReviews())
         dispatch(getBooking())
     }, [dispatch])
 
     let options;
+    let reviewSection;
     if (!user) {
         options = (
+            <div></div>
+        )
+        reviewSection = (
             <div></div>
         )
     } else if (user.id === currentPhotographer?.userId) {
@@ -47,17 +63,26 @@ function PhotographerProfile() {
                 </div>
             </div>
         )
+        reviewSection = (
+            <div></div>
+        )
     } else if (!flag) {
         options = (
             <div>
                 <BookingModal />
             </div>
         )
+        reviewSection = (
+            <ReviewField />
+        )
     } else if (flag) {
         options = (
             <div>
                 <button class='profile-buttons-disabled' disabled={true}>Booked !!</button>
             </div>
+        )
+        reviewSection = (
+            <ReviewField />
         )
     }
     return (
@@ -94,25 +119,11 @@ function PhotographerProfile() {
                     </div>
                 </div>
             </div>
-            <div className='review1'>
-                <form className='review-form'>
-                    <label htmlFor='review'>Write a Review:</label>
-                    <div className='review-container'>
-                        <textarea
-                            className='enter-review'
-                            maxLength="1000"
-                            id='review'
-                            type='text'
-                            onChange={(e) => {setReview(e.target.value); setCharacters(e.target.value.length)}}
-                            value={review}
-                        />
-                        <div>
-                            <span>Characters: {characters}/1000</span>
-                            <button className='review-submit-button'>Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            {reviewSection}
+            <div></div>
+            {rev.map(review => (
+                <div>{review.review}</div>
+            ))}
         </div>
     );
 }
