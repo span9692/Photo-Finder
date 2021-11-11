@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import DeleteModal from '../DeletePhotographer';
 import EditProfileModal from '../EditProfileModal';
 import './profile.css'
@@ -14,7 +14,6 @@ import DeleteReviewModal from '../DeleteReviewModal';
 function PhotographerProfile() {
     const { photographerId } = useParams()
     const dispatch = useDispatch()
-    const history = useHistory()
     const user = useSelector(state => state.session.user)
     const photographerList = useSelector(state => state.photographer)
     const bookings = useSelector(state => Object.values(state.booking))
@@ -54,17 +53,6 @@ function PhotographerProfile() {
 
     let options;
     let reviewSection;
-    let comment;
-
-    if (user) {
-        if (user.id === rev.userId) {
-            // comment = (
-            //     <div>
-            //         <DeleteReviewModal reviewId={review.id} />
-            //     </div>
-            // )
-        }
-    }
 
     if (!user) {
         options = (
@@ -152,9 +140,10 @@ function PhotographerProfile() {
                             <div className='review-detail'>
                                 posted by: {review.User.username}
                             </div>
-                            <div>
-                                <DeleteReviewModal reviewId={review.id} />
-                            </div>
+
+                            {user.id === review.userId ?
+                            <div><DeleteReviewModal reviewId={review.id} /></div>
+                            : <div></div>}
                         </div>
                     </div>
                 ))}
