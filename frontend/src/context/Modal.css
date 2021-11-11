@@ -33,3 +33,16 @@
   margin:auto;
   height:fit-content;
 }
+
+.field5 {
+  margin-left: 10px;
+}
+
+.field6 {
+  margin-bottom: 10px;
+}
+
+.errorlogin {
+  color: red;
+  font-weight: bold;
+}
