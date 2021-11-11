@@ -162,3 +162,23 @@ ul {
     margin-bottom: 15px;
     cursor: pointer;
 }
+
+.login-logout-button {
+    background-color: rgb(230, 157, 230);
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.demologinbutton {
+    background-color: rgb(230, 157, 230);
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    margin-left: 2px;
+    cursor: pointer;
+}

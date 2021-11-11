@@ -10,9 +10,9 @@ function LoginForm() {
 
   const demoLogin = async () => {
     const demoUser = { credential: 'nwang', password: 'password' }
-    await dispatch(sessionActions.login(demoUser))
+    return dispatch(sessionActions.login(demoUser))
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -28,31 +28,39 @@ function LoginForm() {
   return (
     <>
       <form class='modal-form' onSubmit={handleSubmit}>
-        <ul class='no-bullet'>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Username or Email
-        </label>
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-        <label>
-          Password
-        </label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Log In</button>
-        <button className='demologinbutton' onClick={demoLogin}>Demo Login</button>
+        <div className='field5'>
+          <ul class='no-bullet errorlogin'>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+        </div>
+        <div className='field5 field6'>
+          <label>
+            Username or Email
+          </label>
+          <input
+            type="text"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            required
+          />
+        </div>
+        <div className='field5 field6'>
+          <label>
+            Password
+          </label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className='field7'>
+          <button className='login-logout-button' type="submit">Log In</button>
+          <button className='demologinbutton' onClick={demoLogin}>Demo Login</button>
+        </div>
       </form>
     </>
   );

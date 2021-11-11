@@ -17,7 +17,7 @@ function SignupFormPage() {
 
     const demoLogin = async () => {
         const demoUser = { credential: 'nwang', password: 'password' }
-        await dispatch(sessionActions.login(demoUser))
+        return dispatch(sessionActions.login(demoUser))
     }
 
     const handleSubmit = (e) => {
@@ -35,47 +35,59 @@ function SignupFormPage() {
 
     return (
         <form class='modal-form' onSubmit={handleSubmit}>
-            <ul class='no-bullet'>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Email
-            </label>
-            <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-            />
-            <label>
-                Username
-            </label>
-            <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-            />
-            <label>
-                Password
-            </label>
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-            />
-            <label>
-                Confirm Password
-            </label>
-            <input
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-            />
-            <button type="submit">Sign Up</button>
-            <button className='demologinbutton' onClick={demoLogin}>Demo Login</button>
+            <div className='field5'>
+                <ul class='no-bullet errorlogin'>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+                </div>
+            <div className='field5 field6'>
+                <label>
+                    Email
+                </label>
+                <input
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='field5 field6'>
+                <label>
+                    Username
+                </label>
+                <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='field5 field6'>
+                <label>
+                    Password
+                </label>
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='field5 field6'>
+                <label>
+                    Confirm Password
+                </label>
+                <input
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                />
+            </div>
+            <div>
+                <button className='login-logout-button' type="submit">Sign Up</button>
+                <button className='demologinbutton' onClick={demoLogin}>Demo Login</button>
+            </div>
         </form>
     );
 }
