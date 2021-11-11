@@ -10,7 +10,7 @@ function DeleteBook({id}) {
             <button class='profile-buttons' onClick={()=>setShowModal(true)}>Cancel</button>
             {showModal && (
                 <Modal class='delete-modal' onClose={() => setShowModal(false)}>
-                    <DeleteBooking deleteId={id}/>
+                    <DeleteBooking deleteId={id} setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>

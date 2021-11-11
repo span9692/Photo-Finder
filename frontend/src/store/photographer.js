@@ -38,20 +38,20 @@ export const deletePhotographer = (data) => async dispatch => {
         method:"DELETE"
     })
     if (response.ok) {
-        const updated = await response.json();
+        // const updated = await response.json();
         dispatch(removePhotographer(data))
     }
 }
 
 export const updatePhotographer = (data) => async dispatch => {
-    const response = await csrfFetch(`/api/photographers/${data.id}`, {
+    const response = await csrfFetch(`/api/photographers/${data.update.id}`, {
         method:"PUT",
         headers: {"Content-Type":"application/json"},
-        body: JSON.stringify(data)
+        body: JSON.stringify(data.update)
     })
     if (response.ok) {
-        const updated = await response.json();
-        dispatch(modifyPhotographer(data))
+        // const updated = await response.json();
+        dispatch(modifyPhotographer(data.update))
     }
 }
 
@@ -65,7 +65,7 @@ export const addPhotographer = (info) => async dispatch => {
     const response = await csrfFetch('/api/photographers', {
         method:'POST',
         headers: {'Content-Type':'application/json'},
-        body:JSON.stringify(info)
+        body:JSON.stringify(info.newPhotographer)
     })
     const photographer = await response.json();
     dispatch(newPhotographer(photographer))

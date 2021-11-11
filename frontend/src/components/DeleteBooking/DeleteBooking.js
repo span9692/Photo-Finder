@@ -1,16 +1,13 @@
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { deleteBooking } from '../../store/booking';
 
 
-function DeleteBooking({deleteId}) {
+function DeleteBooking({deleteId, setShowModal}) {
     const dispatch = useDispatch();
-    const history = useHistory();
-
     const deleteButton = async () => {
 
         dispatch(deleteBooking(deleteId))
-        await history.push('/bookings')
+        setShowModal(false)
     }
 
     return (
