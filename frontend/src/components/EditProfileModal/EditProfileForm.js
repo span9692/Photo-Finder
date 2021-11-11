@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { updatePhotographer } from '../../store/photographer'
 
 function EditProfileForm() {
     const { photographerId } = useParams();
-    const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const photographer = useSelector(state => state.photographer[photographerId])
@@ -19,6 +18,10 @@ function EditProfileForm() {
     const [state, setState] = useState(photographer.state);
     const [price, setPrice] = useState(photographer.price);
     const [errors, setErrors] = useState([]);
+
+    const refresh = () => {
+        window.location.reload(false)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,13 +38,13 @@ function EditProfileForm() {
             price
         }
 
-        await dispatch(updatePhotographer(update))
+        dispatch(updatePhotographer(update))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             }
         )
-        history.push(`/photographers/${photographer.id}`)
+        await refresh();
     }
 
     return (

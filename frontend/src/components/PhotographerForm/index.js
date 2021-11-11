@@ -44,17 +44,16 @@ const PhotographerForm = () => {
             price
         };
 
-        await dispatch(addPhotographer(newPhotographer))
+        dispatch(addPhotographer(newPhotographer))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors)
                 // console.log(errors)
 
                 // if (errors.length === 0) {
-                //     history.push('/photographers')
-                // }
-            }
-        );
+                    // }
+            });
+        // history.push('/photographers')
     };
 
     return (

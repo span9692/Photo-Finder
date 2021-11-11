@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { deleteBooking } from '../../store/booking';
 
@@ -9,9 +9,8 @@ function DeleteBooking({deleteId}) {
 
     const deleteButton = async () => {
 
-        await dispatch(deleteBooking(deleteId))
-
-        history.push('/bookings')
+        dispatch(deleteBooking(deleteId))
+        await history.push('/bookings')
     }
 
     return (

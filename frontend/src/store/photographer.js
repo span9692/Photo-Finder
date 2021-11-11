@@ -44,7 +44,6 @@ export const deletePhotographer = (data) => async dispatch => {
 }
 
 export const updatePhotographer = (data) => async dispatch => {
-
     const response = await csrfFetch(`/api/photographers/${data.id}`, {
         method:"PUT",
         headers: {"Content-Type":"application/json"},
@@ -52,8 +51,7 @@ export const updatePhotographer = (data) => async dispatch => {
     })
     if (response.ok) {
         const updated = await response.json();
-        dispatch(modifyPhotographer(updated))
-        return updated;
+        dispatch(modifyPhotographer(data))
     }
 }
 
