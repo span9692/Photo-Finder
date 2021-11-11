@@ -8,6 +8,11 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+  const demoLogin = async () => {
+    const demoUser = { credential: 'nwang', password: 'password' }
+    await dispatch(sessionActions.login(demoUser))
+  }
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -19,10 +24,6 @@ function LoginForm() {
     );
   };
 
-  const demoLogin = async () => {
-    const demoUser = { credential: 'nwang', password: 'password' }
-    await dispatch(sessionActions.login(demoUser))
-  }
 
   return (
     <>
@@ -51,7 +52,7 @@ function LoginForm() {
           required
         />
         <button type="submit">Log In</button>
-        <button onClick={demoLogin}>Demo Login</button>
+        <button className='demologinbutton' onClick={demoLogin}>Demo Login</button>
       </form>
     </>
   );

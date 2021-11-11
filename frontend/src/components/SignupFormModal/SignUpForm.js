@@ -75,7 +75,7 @@ function SignupFormPage() {
                 required
             />
             <button type="submit">Sign Up</button>
-            <button onClick={demoLogin}>Demo Login</button>
+            <button className='demologinbutton' onClick={demoLogin}>Demo Login</button>
         </form>
     );
 }
