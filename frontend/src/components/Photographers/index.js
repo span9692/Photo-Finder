@@ -21,6 +21,7 @@ return (
         <br></br>
         <br></br>
         <br></br>
+        <div className='booking-title'>Photographers</div>
         <div class='portraits'>
             {profiles.map(profile => (
             <div class='individual-pix' key={profile[1]?.id}>
