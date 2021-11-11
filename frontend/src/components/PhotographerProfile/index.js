@@ -40,6 +40,7 @@ function PhotographerProfile() {
 
     console.log(rev)
 
+
     useEffect(() => {
         dispatch(getPhotographer())
         dispatch(showReviews())
@@ -53,6 +54,7 @@ function PhotographerProfile() {
 
     let options;
     let reviewSection;
+    let comment;
 
     if (!user) {
         options = (
@@ -141,7 +143,7 @@ function PhotographerProfile() {
                                 posted by: {review.User.username}
                             </div>
 
-                            {user.id === review.userId ?
+                            {user?.id === review.userId ?
                             <div><DeleteReviewModal reviewId={review.id} /></div>
                             : <div></div>}
                         </div>
