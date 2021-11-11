@@ -9,6 +9,7 @@ import BookingModal from '../BookingModal';
 import { getBooking } from '../../store/booking'
 import ReviewField from '../ReviewField';
 import { showReviews } from '../../store/review';
+import DeleteReviewModal from '../DeleteReviewModal';
 
 function PhotographerProfile() {
     const { photographerId } = useParams()
@@ -17,7 +18,7 @@ function PhotographerProfile() {
     const user = useSelector(state => state.session.user)
     const photographerList = useSelector(state => state.photographer)
     const bookings = useSelector(state => Object.values(state.booking))
-    const reviews = useSelector(state=>Object.values(state.review))
+    const reviews = useSelector(state => Object.values(state.review))
     const currentPhotographer = photographerList[photographerId]
 
 
@@ -46,13 +47,25 @@ function PhotographerProfile() {
         dispatch(getBooking())
     }, [dispatch])
 
-    let array = {...photographerList}
-    if (+photographerId > array.length) {
-        history.push('/photographers')
-    }
+    // let array = {...photographerList}
+    // if (+photographerId > array.length) {
+    //     history.push('/photographers')
+    // }
 
     let options;
     let reviewSection;
+    let comment;
+
+    if (user) {
+        if (user.id === rev.userId) {
+            // comment = (
+            //     <div>
+            //         <DeleteReviewModal reviewId={review.id} />
+            //     </div>
+            // )
+        }
+    }
+
     if (!user) {
         options = (
             <div></div>
@@ -81,7 +94,7 @@ function PhotographerProfile() {
             </div>
         )
         reviewSection = (
-            <ReviewField photographerId={photographerId} userId={user.id}/>
+            <ReviewField photographerId={photographerId} userId={user.id} />
         )
     } else if (flag) {
         options = (
@@ -90,7 +103,7 @@ function PhotographerProfile() {
             </div>
         )
         reviewSection = (
-            <ReviewField photographerId={photographerId} userId={user.id}/>
+            <ReviewField photographerId={photographerId} userId={user.id} />
         )
     }
     return (
@@ -140,8 +153,7 @@ function PhotographerProfile() {
                                 posted by: {review.User.username}
                             </div>
                             <div>
-                                <button>edit</button>
-                                <button>delete</button>
+                                <DeleteReviewModal reviewId={review.id} />
                             </div>
                         </div>
                     </div>

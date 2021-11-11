@@ -22,6 +22,7 @@ function ReviewField({photographerId, userId}) {
 
         await dispatch(addReview(newReview))
         setReview('')
+        setCharacters(0)
     }
 
     return (
