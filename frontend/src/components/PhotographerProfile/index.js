@@ -16,10 +16,9 @@ function PhotographerProfile() {
     const user = useSelector(state => state.session.user)
     const photographerList = useSelector(state => state.photographer)
     const bookings = useSelector(state => Object.values(state.booking))
-    const reviews = useSelector(state=>state.review)
+    const reviews = useSelector(state=>Object.values(state.review))
     const currentPhotographer = photographerList[photographerId]
 
-    console.log('reviews', reviews)
 
     let flag = false;
     if (user) {
@@ -29,6 +28,15 @@ function PhotographerProfile() {
             }
         })
     }
+
+    let rev = [];
+    reviews.forEach(review => {
+        if (review.photographerId == photographerId) {
+            rev.push(review)
+        }
+    })
+    console.log('rev', rev)
+
     useEffect(() => {
         dispatch(getPhotographer())
         dispatch(showReviews())
@@ -113,6 +121,9 @@ function PhotographerProfile() {
             </div>
             {reviewSection}
             <div></div>
+            {rev.map(review => (
+                <div>{review.review}</div>
+            ))}
         </div>
     );
 }
