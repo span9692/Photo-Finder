@@ -144,7 +144,7 @@ ul {
     background-color: rgb(230, 157, 230);
     color: black;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 5px;
     width: 100px;
     height: 30px;
     margin-left: 20px;
@@ -155,7 +155,7 @@ ul {
     background-color: rgb(230, 157, 230);
     color: black;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 5px;
     width: 100px;
     height: 30px;
     margin-left: 10em;
@@ -167,7 +167,7 @@ ul {
     background-color: rgb(230, 157, 230);
     color: black;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 5px;
     margin-bottom: 6px;
     margin-right: 2px;
     cursor: pointer;
@@ -177,8 +177,26 @@ ul {
     background-color: rgb(230, 157, 230);
     color: black;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 5px;
     margin-bottom: 1rem;
     margin-left: 2px;
     cursor: pointer;
+}
+
+.notfound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 200px;
+    margin-top: 80px;
+}
+
+.four {
+    color: red;
+    font-weight: bold;
+}
+
+.o {
+    font-weight: bold;
+    font-size: 100px;
 }

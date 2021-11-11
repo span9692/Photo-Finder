@@ -29,7 +29,7 @@
     background-color: rgb(230, 157, 230);
     color: black;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 5px;
     width: 100px;
     height: 30px;
     cursor: pointer;
@@ -39,7 +39,7 @@
     background-color: rgb(230, 157, 230);
     color: black;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 5px;
     width: 100px;
     height: 30px;
 }
@@ -89,7 +89,7 @@
     background-color: rgb(230, 157, 230);
     color: black;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -144,6 +144,6 @@
     background-color: rgb(230, 157, 230);
     color: black;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 5px;
     cursor: pointer;
 }

@@ -79,7 +79,7 @@ function PhotographerProfile() {
         )
     } else if (!flag) {
         options = (
-            <div>
+            <div class='edit-delete-button'>
                 <BookingModal />
             </div>
         )
@@ -88,7 +88,7 @@ function PhotographerProfile() {
         )
     } else if (flag) {
         options = (
-            <div>
+            <div class='edit-delete-button'>
                 <button class='profile-buttons-disabled' disabled={true}>Booked !!</button>
             </div>
         )

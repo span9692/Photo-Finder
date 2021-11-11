@@ -31,7 +31,7 @@ function ProfileButton({ user }) {
 
   return (
     <div>
-      <button onClick={openMenu}>
+      <button className='profileButton' onClick={openMenu}>
         <i class="far fa-address-card"></i>
       </button>
       {showMenu && (
