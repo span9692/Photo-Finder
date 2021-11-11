@@ -27,15 +27,9 @@ return (
                 <Link class='profile-detail' to={`/photographers/${profile[1]?.id}`}>
                     <img class='photographer-portraits' src={profile[1]?.profilePic}></img>
                     <div class='info'>
-                        <div>
-                            <div>{profile[1]?.firstName} {profile[1]?.lastName}</div>
-                        </div>
-                        <div>
-                            <div>
-                                {profile[1]?.city}, {profile[1]?.state}
-                            </div>
-                            {/* {'$'}{profile[1]?.price}/hr */}
-                        </div>
+                        <div className='info-width'>{profile[1]?.firstName} {profile[1]?.lastName}</div>
+                        <div className='info-width'>{profile[1]?.city}, {profile[1]?.state}</div>
+                        <div className='info-width'>{'$'}{profile[1]?.price}/hr</div>
                     </div>
                 </Link>
             </div>

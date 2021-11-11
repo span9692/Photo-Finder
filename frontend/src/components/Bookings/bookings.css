@@ -29,12 +29,7 @@
 tr > th,
 tr > td {
     padding: 5px 20px;
-    /* border-spacing: 5px; */
 }
-
-/* tr > th {
-    text-decoration: underline;
-} */
 
 table {
     border-collapse: collapse;
@@ -46,7 +41,8 @@ tr {
 }
 
 tr:first-child {
-    border-top: none
+    border-top: none;
+    border-bottom: solid black 1px;
 }
 
 tr:last-child {
