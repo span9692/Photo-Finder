@@ -65,7 +65,7 @@ export const addPhotographer = (info) => async dispatch => {
     const response = await csrfFetch('/api/photographers', {
         method:'POST',
         headers: {'Content-Type':'application/json'},
-        body:JSON.stringify(info)
+        body:JSON.stringify(info.newPhotographer)
     })
     const photographer = await response.json();
     dispatch(newPhotographer(photographer))

@@ -18,17 +18,18 @@ const PhotographerForm = () => {
     const [price, setPrice] = useState();
     const [errors, setErrors] = useState([]);
 
-    // const reset = () => {
-    //     setFirstName("");
-    //     setLastName("");
-    //     setProfilePic('');
-    //     setBiography('');
-    //     setCity('');
-    //     setState('');
-    //     setPrice();
-    //     setErrors([]);
-    // }
+    const refresh = () => {
+        setFirstName("");
+        setLastName("");
+        setProfilePic('');
+        setBiography('');
+        setCity('');
+        setState('');
+        setPrice();
+        setErrors([]);
 
+        history.push('/photographers')
+    }
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -44,14 +45,11 @@ const PhotographerForm = () => {
             price
         };
 
-        dispatch(addPhotographer(newPhotographer))
+        dispatch(addPhotographer({newPhotographer, refresh}))
+            .then(() => refresh())
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors)
-                // console.log(errors)
-
-                // if (errors.length === 0) {
-                    // }
             });
         // history.push('/photographers')
     };
