@@ -236,3 +236,7 @@ ul {
     vertical-align: bottom;
     display: flex;
 }
+
+.yolo {
+    position: relative;
+}

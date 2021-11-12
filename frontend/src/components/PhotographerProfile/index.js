@@ -98,7 +98,7 @@ function PhotographerProfile() {
     }
     return (
 
-        <div>
+        <div className='yolo'>
             <br></br>
             <br></br>
             <br></br>
@@ -144,11 +144,19 @@ function PhotographerProfile() {
                             </div>
 
                             {user?.id === review.userId ?
-                            <div><DeleteReviewModal reviewId={review.id} /></div>
-                            : <div></div>}
+                                <div><DeleteReviewModal reviewId={review.id} /></div>
+                                : <div></div>}
                         </div>
                     </div>
                 ))}
+            </div>
+            <div class='sean-icon'>
+                <a className='linkedinposition' href="https://github.com/span9692" target="_blank">
+                    <img className='github' src="https://res.cloudinary.com/photofinder/image/upload/v1636674658/GitHub-Mark-120px-plus_txoi2x.png" />
+                </a>
+                <a className='linkedinposition' href="https://www.linkedin.com/in/sean-pan-395a4593/" target="_blank">
+                    <img className='linkedin' src="https://res.cloudinary.com/photofinder/image/upload/v1636675007/linkedin-logo-png-2025_p0gjab.png" />
+                </a>
             </div>
         </div>
     );
