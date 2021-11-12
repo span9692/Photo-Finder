@@ -59,6 +59,7 @@ ul {
 .portraits {
     display:flex;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .info {
@@ -219,6 +220,14 @@ ul {
     display: flex;
     align-items: center;
     position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.sean-icon {
+    display: inline-flex;
+    align-items: center;
+    position:absolute;
     bottom: 0;
     right: 0;
 }
