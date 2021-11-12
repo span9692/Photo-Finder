@@ -9,17 +9,27 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
-  
+
+  const photographers = useSelector(state=>Object.values(state.photographer))
+  let flag = false;
+
+  photographers.forEach(photographer => {
+    if (photographer?.userId === sessionUser?.id) {
+      flag = true;
+    }
+  })
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <div class='ayo'>
+        {flag ? null :
         <div>
           <button className='no-border blackback'>
             <Link class='post-photographer' to='/post'>Become a Photographer</Link>
           </button>
         </div>
+        }
         <div className='black'>
           <ProfileButton user={sessionUser} />
         </div>
