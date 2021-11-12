@@ -13,6 +13,7 @@ import { showReviews } from '../../store/review';
 import DeleteReviewModal from '../DeleteReviewModal';
 import { showPicture } from '../../store/photos';
 import AddPhotoModal from '../AddPhotoModal';
+import PhotoModal from '../PhotoModal';
 
 
 
@@ -205,7 +206,8 @@ function PhotographerProfile() {
                 <div className='side-container'></div>
                 <div className='image-container6'>
                     {photosArr.map(photo => (
-                        <img className='image6' key={photo.id} src={photo.url} />
+                        // <img className='image6' key={photo.id} src={photo.url} />
+                        <PhotoModal photoId={photo.id} url={photo.url} />
                     ))}
                 </div>
                 <div className='side-container'></div>
