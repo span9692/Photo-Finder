@@ -10,6 +10,7 @@ import { getBooking } from '../../store/booking'
 import ReviewField from '../ReviewField';
 import { showReviews } from '../../store/review';
 import DeleteReviewModal from '../DeleteReviewModal';
+import { showPicture } from '../../store/photos';
 
 function PhotographerProfile() {
     const { photographerId } = useParams()
@@ -19,7 +20,9 @@ function PhotographerProfile() {
     const bookings = useSelector(state => Object.values(state.booking))
     const reviews = useSelector(state => Object.values(state.review))
     const currentPhotographer = photographerList[photographerId]
+    const photos = useSelector(state=>Object.values(state.photo))
 
+    console.log(photos)
 
 
     let flag = false;
@@ -38,13 +41,11 @@ function PhotographerProfile() {
         }
     })
 
-    console.log(rev)
-
-
     useEffect(() => {
         dispatch(getPhotographer())
         dispatch(showReviews())
         dispatch(getBooking())
+        dispatch(showPicture())
     }, [dispatch])
 
     // let array = {...photographerList}
@@ -54,7 +55,6 @@ function PhotographerProfile() {
 
     let options;
     let reviewSection;
-    let comment;
 
     if (!user) {
         options = (
@@ -130,6 +130,8 @@ function PhotographerProfile() {
                     </div>
                 </div>
             </div>
+            <br></br><br></br><br></br><br></br>
+            <div></div>
             {reviewSection}
             <div></div>
             <div className='review'>
