@@ -64,7 +64,8 @@ function PhotographerProfile() {
     let reviewSection;
 
     let spacing = (<div></div>);
-    if (user.id === currentPhotographer?.userId) {
+
+    if (!user || user?.id === currentPhotographer?.userId) {
         if (photosArr.length === 0) {
             if (rev.length === 0) {
                 spacing = (
