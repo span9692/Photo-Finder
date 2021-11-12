@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import DeleteModal from '../DeletePhotographer';
@@ -17,6 +17,7 @@ import AddPhotoModal from '../AddPhotoModal';
 
 
 function PhotographerProfile() {
+    const [load, setLoad] = useState(false)
     const { photographerId } = useParams()
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
@@ -53,7 +54,7 @@ function PhotographerProfile() {
         dispatch(getPhotographer())
         dispatch(showReviews())
         dispatch(getBooking())
-        dispatch(showPicture())
+        dispatch(showPicture()).then(() => setLoad(true))
     }, [dispatch])
 
 
@@ -142,14 +143,14 @@ function PhotographerProfile() {
     } else if (flag) {
         options = (
             <div class='edit-delete-button'>
-                <button class='profile-buttons-disabled' disabled={true}>Booked !!</button>
+                <button class='profile-buttons-disabled' disabled={true}>Booked!</button>
             </div>
         )
         reviewSection = (
             <ReviewField photographerId={photographerId} userId={user.id} />
         )
     }
-    return (
+    return load && (
 
         <div className='yolo'>
             <br></br>
