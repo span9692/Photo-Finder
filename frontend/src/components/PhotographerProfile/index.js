@@ -207,7 +207,9 @@ function PhotographerProfile() {
                 <div className='image-container6'>
                     {photosArr.map(photo => (
                         // <img className='image6' key={photo.id} src={photo.url} />
-                        <PhotoModal photoId={photo.id} url={photo.url} />
+                        <div key={photo.id}>
+                            <PhotoModal photoId={photo.id} url={photo.url} />
+                        </div>
                     ))}
                 </div>
                 <div className='side-container'></div>
