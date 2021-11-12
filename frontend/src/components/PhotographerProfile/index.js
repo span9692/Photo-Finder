@@ -23,7 +23,7 @@ function PhotographerProfile() {
     const bookings = useSelector(state => Object.values(state.booking))
     const reviews = useSelector(state => Object.values(state.review))
     const currentPhotographer = photographerList[photographerId]
-    const photos = useSelector(state=>Object.values(state.photo))
+    const photos = useSelector(state => Object.values(state.photo))
 
     let photosArr = [];
     photos.forEach(photo => {
@@ -139,12 +139,15 @@ function PhotographerProfile() {
                     </div>
                 </div>
             </div>
-            <br></br><br></br><br></br><br></br>
-
-            <div className='image-container6'>
-                {photosArr.map(photo => (
-                    <img className='image6' key={photo.id} src={photo.url} />
-                ))}
+    
+            <div className='scrollbar'>
+                <div className='side-container'></div>
+                <div className='image-container6'>
+                    {photosArr.map(photo => (
+                        <img className='image6' key={photo.id} src={photo.url} />
+                    ))}
+                </div>
+                <div className='side-container'></div>
             </div>
 
             <div></div>

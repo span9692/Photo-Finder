@@ -1,9 +1,19 @@
+.scrollbar {
+    display: flex;
+    margin-top: 10px;
+}
+
+.side-container {
+    width: 20%;
+}
+
 .image-container6 {
     display: flex;
-    /* overflow: scroll; */
-    overflow-x: auto;
+    overflow: scroll;
+    overflow-y: hidden;
 }
 
 .image6 {
     height: 200px;
+    margin-right: 15px;
 }
