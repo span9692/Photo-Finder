@@ -31,8 +31,6 @@ function PhotographerProfile() {
             photosArr.push(photo)
         }
     })
-    console.log(photos)
-    console.log(photosArr)
 
     let flag = false;
     if (user) {
