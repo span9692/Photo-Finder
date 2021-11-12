@@ -112,8 +112,8 @@ function PhotographerProfile() {
             <br></br>
             <br></br>
             <br></br>
-            <br></br>
-            <br></br>
+
+
             <div class='container'>
                 <div>
                     <img class='profile-pic' src={currentPhotographer?.profilePic}></img>
@@ -139,7 +139,7 @@ function PhotographerProfile() {
                     </div>
                 </div>
             </div>
-    
+
             <div className='scrollbar'>
                 <div className='side-container'></div>
                 <div className='image-container6'>
