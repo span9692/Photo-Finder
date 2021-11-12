@@ -9,6 +9,16 @@
 }
 
 .image-container6 {
+    /*4 images or less */
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    overflow-y: hidden;
+    width: 86%
+}
+
+.image-container7 {
+    /*5 images or more */
     display: flex;
     overflow: auto;
     overflow-y: hidden;

@@ -204,7 +204,7 @@ function PhotographerProfile() {
 
             <div className='scrollbar'>
                 <div className='side-container'></div>
-                <div className='image-container6'>
+                <div className= {photosArr.length < 6 ? 'image-container6' : 'image-container7'}>
                     {photosArr.map(photo => (
                         // <img className='image6' key={photo.id} src={photo.url} />
                         <div key={photo.id}>
