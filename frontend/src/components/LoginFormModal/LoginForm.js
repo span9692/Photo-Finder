@@ -9,7 +9,7 @@ function LoginForm() {
   const [errors, setErrors] = useState([]);
 
   const demoLogin = async () => {
-    const demoUser = { credential: 'nwang', password: 'password' }
+    const demoUser = { credential: 'nickv', password: 'password' }
     return dispatch(sessionActions.login(demoUser))
   }
 
