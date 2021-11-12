@@ -254,3 +254,8 @@ ul {
 .yolo {
     position: relative;
 }
+
+.rev-title {
+    font-size: 30px;
+    text-decoration: underline black 2px;
+}
