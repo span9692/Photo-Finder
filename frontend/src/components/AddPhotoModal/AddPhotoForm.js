@@ -32,7 +32,7 @@ function AddPhotoForm({setShowModal}) {
                     <div className='formfield1'>
                         <label htmlFor='url'>Image URL: </label>
                         <input
-                            // className='textbox-width'
+                            className='imageurl-width'
                             id='url'
                             type='text'
                             onChange={(e)=> setUrl(e.target.value)}

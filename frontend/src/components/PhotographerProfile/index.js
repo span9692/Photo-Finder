@@ -157,6 +157,16 @@ function PhotographerProfile() {
             <ReviewField photographerId={photographerId} userId={user.id} />
         )
     }
+
+    let oneFlag = (
+        <div>
+            <br></br>
+            <br></br>
+        </div>
+    );
+    if (rev.length === 0 && photosArr.length === 0) {
+        oneFlag = null;
+    }
     return load && (
 
         <div className='yolo'>
@@ -165,14 +175,6 @@ function PhotographerProfile() {
             <br></br>
             <br></br>
 
-            {/* <form name="uploadForm">
-                <div>
-                <input id="uploadInput" type="file" name="myFiles" multiple />
-                selected files: <span id="fileNum">0</span>;
-                total size: <span id="fileSize">0</span>
-                </div>
-                <div><input type="submit" value="Send file" /></div>
-            </form> */}
             <div class='container'>
                 <div>
                     <img class='profile-pic' src={currentPhotographer?.profilePic}></img>
@@ -240,9 +242,9 @@ function PhotographerProfile() {
                     </div>
                 ))}
             </div>
-            <br></br>
-            <br></br>
-
+            {/* <br></br>
+            <br></br> */}
+            {oneFlag}
             {spacing}
             <div class='sean-icon'>
                 <a className='linkedinposition' href="https://github.com/span9692" target="_blank">
