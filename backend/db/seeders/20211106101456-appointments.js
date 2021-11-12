@@ -19,8 +19,8 @@ module.exports = {
       {userId: 2, photographerId: 1, date: '2021-12-08', hours: 2, createdAt: new Date(), updatedAt:new Date()},
       {userId: 4, photographerId: 1, date: '2021-12-01', hours: 1, createdAt: new Date(), updatedAt:new Date()},
       {userId: 5, photographerId: 1, date: '2021-12-22', hours: 1, createdAt: new Date(), updatedAt:new Date()},
-      {userId: 6, photographerId: 6, date: '2021-11-29', hours: 3, createdAt: new Date(), updatedAt:new Date()},
-      {userId: 7, photographerId: 6, date: '2021-11-22', hours: 2, createdAt: new Date(), updatedAt:new Date()},
+      {userId: 6, photographerId: 6, date: '2022-01-14', hours: 3, createdAt: new Date(), updatedAt:new Date()},
+      {userId: 7, photographerId: 6, date: '2022-01-02', hours: 2, createdAt: new Date(), updatedAt:new Date()},
     ], {});
   },
 

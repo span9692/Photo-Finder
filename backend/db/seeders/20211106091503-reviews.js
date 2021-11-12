@@ -14,7 +14,7 @@ module.exports = {
       {userId: 3, photographerId: 1, review:'Wow! Amazing!', createdAt: new Date(), updatedAt:new Date()},
       {userId: 4, photographerId: 1, review:'yo dudes lit', createdAt: new Date(), updatedAt:new Date()},
       {userId: 5, photographerId: 1, review:'Thank you!', createdAt: new Date(), updatedAt:new Date()},
-      {userId: 6, photographerId: 2, review:'love the photos..recommend!', createdAt: new Date(), updatedAt:new Date()},
+      {userId: 6, photographerId: 2, review:'love the photos..recommended!', createdAt: new Date(), updatedAt:new Date()},
       {userId: 7, photographerId: 2, review:'Thank you! 10/10', createdAt: new Date(), updatedAt:new Date()},
     ], {});
   },
