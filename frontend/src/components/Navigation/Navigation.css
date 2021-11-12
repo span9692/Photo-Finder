@@ -56,6 +56,10 @@
 
 .profileButton {
     position: relative;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .profile-dropdown {
