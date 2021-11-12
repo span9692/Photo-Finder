@@ -34,6 +34,7 @@ function PhotographerProfile() {
         }
     })
 
+
     let flag = false;
     if (user) {
         bookings.forEach(booking => {
@@ -49,6 +50,11 @@ function PhotographerProfile() {
             rev.push(review)
         }
     })
+
+    let reviewFlag = true;
+    if (rev.length === 0) {
+        reviewFlag = false
+    }
 
     useEffect(() => {
         dispatch(getPhotographer())
@@ -90,6 +96,7 @@ function PhotographerProfile() {
             } else {
                 spacing = (
                     <div>
+                        <br></br>
                         <br></br>
                         <br></br>
                         <br></br>
@@ -210,7 +217,12 @@ function PhotographerProfile() {
             {reviewSection}
             <div></div>
             <div className='review'>
-                <div className='rev-title'>Reviews</div>
+                {
+                    reviewFlag ?
+                    <div className='rev-title'>Reviews</div>
+                    : null
+
+                }
                 {rev.map(review => (
                     <div key={review.id} className='rev1 review-box'>
                         <div className='review-context'>
@@ -228,6 +240,9 @@ function PhotographerProfile() {
                     </div>
                 ))}
             </div>
+            <br></br>
+            <br></br>
+
             {spacing}
             <div class='sean-icon'>
                 <a className='linkedinposition' href="https://github.com/span9692" target="_blank">
