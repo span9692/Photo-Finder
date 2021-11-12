@@ -13,11 +13,11 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <div class='become-photographer'>
+      <div class='ayo'>
         <div>
-          <button class='become-a-photographer'><Link class='post-photographer' to='/post'>Become a Photographer</Link></button>
+          <button className='no-border blackback'><Link class='post-photographer' to='/post'>Become a Photographer</Link></button>
         </div>
-        <div>
+        <div className='black'>
           <ProfileButton user={sessionUser} />
         </div>
       </div>

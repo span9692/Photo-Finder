@@ -6,34 +6,54 @@ import { getPhotographer } from '../../store/photographer'
 import DeleteBook from '../DeleteBooking'
 import './bookings.css'
 
-function Bookings () {
+function Bookings() {
     const [load, setLoad] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
-    const checkUser = useSelector(state=>state.session)
+    const checkUser = useSelector(state => state.session)
     let user;
     // const user = useSelector(state=>state.session.user.id)
-    const bookings = useSelector(state=>Object.values(state.booking))
-    const photographer = useSelector(state=> state.photographer)
+    const bookings = useSelector(state => Object.values(state.booking))
+    const photographer = useSelector(state => state.photographer)
 
-    if(checkUser.user) {
-        if(checkUser.user.id) {
+    if (checkUser.user) {
+        if (checkUser.user.id) {
             user = checkUser.user.id;
         }
     } else {
         history.push('/photographers')
     }
-
     let bookedBy = [];
     let booked = [];
+
+    function sortDate(a, b) {
+        let date1 = a[0].date;
+        let date2 = b[0].date;
+        let arr1 = date1.split('-');
+        let arr2 = date2.split('-');
+
+        for (let i = 0; i < 3; i++) {
+            if (+arr1[i] > +arr2[i]) {
+                return 1
+            } else if (+arr1[i] < +arr2[i]) {
+                return -1;
+            } else {
+                continue;
+            }
+        }
+    }
 
     bookings.forEach(book => {
         if (book.userId === user) {
             bookedBy.push([book, book.id])
         } else if (book.photographerId === user) {
-           booked.push([book, book.id])
+            booked.push([book, book.id])
         }
     })
+
+    bookedBy.sort(sortDate)
+    booked.sort(sortDate)
+
 
     useEffect(() => {
         dispatch(getBooking())
@@ -57,17 +77,17 @@ function Bookings () {
                             <th></th>
                         </tr>
                         {bookedBy.map(book => (
-                        <tr key={book[1]}>
-                            <td>{photographer[book[0].photographerId].firstName} {photographer[book[0].photographerId].lastName}</td>
-                            <td>{book[0].date}</td>
-                            <td className='text'>{book[0].hours}</td>
-                            <td><DeleteBook id={book[1]}/></td>
-                        </tr>
+                            <tr key={book[1]}>
+                                <td>{photographer[book[0].photographerId].firstName} {photographer[book[0].photographerId].lastName}</td>
+                                <td>{book[0].date}</td>
+                                <td className='text'>{book[0].hours}</td>
+                                <td><DeleteBook id={book[1]} /></td>
+                            </tr>
                         ))}
                     </table>
                 </div>
                 <div className='half'>
-                <table>
+                    <table>
                         <tr>
                             <th>Booked By</th>
                             <th>Date</th>
@@ -75,12 +95,12 @@ function Bookings () {
                             <th></th>
                         </tr>
                         {booked.map(book => (
-                        <tr key={book[1]}>
-                            <td>{photographer[book[0].userId].firstName} {photographer[book[0].userId].lastName}</td>
-                            <td>{book[0].date}</td>
-                            <td className='text'>{book[0].hours}</td>
-                            <td><DeleteBook id={book[1]}/></td>
-                        </tr>
+                            <tr key={book[1]}>
+                                <td>{photographer[book[0].userId].firstName} {photographer[book[0].userId].lastName}</td>
+                                <td>{book[0].date}</td>
+                                <td className='text'>{book[0].hours}</td>
+                                <td><DeleteBook id={book[1]} /></td>
+                            </tr>
                         ))}
                     </table>
                 </div>

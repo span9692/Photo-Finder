@@ -19,6 +19,10 @@ body {
     /* z-index: -1; */
 }
 
+.no-border {
+    border: solid black 2px;
+}
+
 .quote {
     display: flex;
     flex-direction: column;
@@ -71,6 +75,12 @@ ul {
 .become-photographer {
     display: flex;
     justify-content: space-between;
+}
+
+.ayo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .profile-detail {
