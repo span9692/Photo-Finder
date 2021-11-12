@@ -1,0 +1,9 @@
+.image-container6 {
+    display: flex;
+    /* overflow: scroll; */
+    overflow-x: auto;
+}
+
+.image6 {
+    height: 200px;
+}
