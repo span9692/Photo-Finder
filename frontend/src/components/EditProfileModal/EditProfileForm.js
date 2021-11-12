@@ -83,6 +83,7 @@ function EditProfileForm({ setShowModal }) {
                 <div class='formfield'>
                     <label htmlFor='biography'>Biography</label>
                     <textarea
+                        className='edit-prof'
                         id='biography'
                         type='text'
                         onChange={(e) => setBiography(e.target.value)}
