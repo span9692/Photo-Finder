@@ -46,7 +46,7 @@ function AddPhotoForm({setShowModal}) {
                             <option value='maternal'>Maternal</option>
                             <option value='family'>Family</option>
                             <option value='adventure'>Adventure</option>
-                            <option value='wedding'>Other</option>
+                            <option value='pet'>Pet</option>
                         </select>
                     </div>
                     <div>
