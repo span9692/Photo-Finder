@@ -34,6 +34,7 @@ function PhotographerProfile() {
         }
     })
 
+
     let flag = false;
     if (user) {
         bookings.forEach(booking => {
@@ -49,6 +50,11 @@ function PhotographerProfile() {
             rev.push(review)
         }
     })
+
+    let reviewFlag = true;
+    if (rev.length === 0) {
+        reviewFlag = false
+    }
 
     useEffect(() => {
         dispatch(getPhotographer())
@@ -90,6 +96,7 @@ function PhotographerProfile() {
             } else {
                 spacing = (
                     <div>
+                        <br></br>
                         <br></br>
                         <br></br>
                         <br></br>
@@ -150,6 +157,16 @@ function PhotographerProfile() {
             <ReviewField photographerId={photographerId} userId={user.id} />
         )
     }
+
+    let oneFlag = (
+        <div>
+            <br></br>
+            <br></br>
+        </div>
+    );
+    if (rev.length === 0 && photosArr.length === 0) {
+        oneFlag = null;
+    }
     return load && (
 
         <div className='yolo'>
@@ -158,14 +175,6 @@ function PhotographerProfile() {
             <br></br>
             <br></br>
 
-            {/* <form name="uploadForm">
-                <div>
-                <input id="uploadInput" type="file" name="myFiles" multiple />
-                selected files: <span id="fileNum">0</span>;
-                total size: <span id="fileSize">0</span>
-                </div>
-                <div><input type="submit" value="Send file" /></div>
-            </form> */}
             <div class='container'>
                 <div>
                     <img class='profile-pic' src={currentPhotographer?.profilePic}></img>
@@ -210,7 +219,12 @@ function PhotographerProfile() {
             {reviewSection}
             <div></div>
             <div className='review'>
-                <div className='rev-title'>Reviews</div>
+                {
+                    reviewFlag ?
+                    <div className='rev-title'>Reviews</div>
+                    : null
+
+                }
                 {rev.map(review => (
                     <div key={review.id} className='rev1 review-box'>
                         <div className='review-context'>
@@ -228,6 +242,9 @@ function PhotographerProfile() {
                     </div>
                 ))}
             </div>
+            {/* <br></br>
+            <br></br> */}
+            {oneFlag}
             {spacing}
             <div class='sean-icon'>
                 <a className='linkedinposition' href="https://github.com/span9692" target="_blank">
