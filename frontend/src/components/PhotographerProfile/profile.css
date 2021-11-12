@@ -99,6 +99,12 @@
     resize: none;
 }
 
+.edit-prof {
+    width: auto;
+    height: 90px;
+    resize: none;
+}
+
 .review {
     display: flex;
     flex-direction: column;
