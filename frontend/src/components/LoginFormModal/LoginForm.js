@@ -29,7 +29,7 @@ function LoginForm() {
     <>
       <form class='modal-form' onSubmit={handleSubmit}>
         <div className='field5'>
-          <ul class='no-bullet errorlogin'>
+          <ul class='errorlogin1'>
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
             ))}
@@ -43,7 +43,7 @@ function LoginForm() {
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
-            required
+            // required
           />
         </div>
         <div className='field5 field6'>
@@ -54,7 +54,7 @@ function LoginForm() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
+            // required
           />
         </div>
         <div className='field7'>
