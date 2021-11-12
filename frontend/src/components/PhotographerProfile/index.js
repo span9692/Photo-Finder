@@ -125,7 +125,7 @@ function PhotographerProfile() {
                     <div>
                         Biography: <br></br>{currentPhotographer?.biography}
                     </div>
-                    <div class='options'>
+                    <div class='options edit-delete-button'>
                         {options}
                     </div>
                 </div>
