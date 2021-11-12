@@ -41,11 +41,15 @@ function ReviewField({photographerId, userId}) {
                     />
                     <div className='review4'>
                         <span className='character-count'>Characters: {characters}/1000</span>
-                        <button
-                            className='review-submit-button'
-                            type='submit'
-                            disabled={review ? false : true}
-                            >Submit</button>
+                        {review ?
+                            <button
+                                className='review-submit-button'
+                                type='submit'
+                                disabled={review ? false : true}
+                                >Submit
+                            </button>
+                            : <div></div>
+                        }
                     </div>
                 </div>
             </form>

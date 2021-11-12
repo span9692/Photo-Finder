@@ -80,8 +80,18 @@ function PhotographerProfile() {
                     <br></br>
                     <br></br>
                     <br></br>
-                    <br></br>
                 </div> )
+            } else {
+                spacing = (
+                    <div>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                    </div>
+                )
             }
         }
     } else if (rev.length === 0) {
@@ -183,6 +193,7 @@ function PhotographerProfile() {
             {reviewSection}
             <div></div>
             <div className='review'>
+            <div className='rev-title'>Reviews</div>
                 {rev.map(review => (
                     <div key={review.id} className='rev1 review-box'>
                         <div className='review-context'>
