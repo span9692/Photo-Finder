@@ -9,13 +9,16 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
+  
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <div class='ayo'>
         <div>
-          <button className='no-border blackback'><Link class='post-photographer' to='/post'>Become a Photographer</Link></button>
+          <button className='no-border blackback'>
+            <Link class='post-photographer' to='/post'>Become a Photographer</Link>
+          </button>
         </div>
         <div className='black'>
           <ProfileButton user={sessionUser} />
