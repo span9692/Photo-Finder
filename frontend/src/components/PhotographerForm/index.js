@@ -101,6 +101,7 @@ const PhotographerForm = () => {
                             <label className='d4' htmlFor='biography'>Biography</label>
                             <br></br>
                             <textarea id='biography'
+                            className='edit-prof'
                                 type='text'
                                 onChange={(e) => setBiography(e.target.value)}
                                 value={biography}></textarea>

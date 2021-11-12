@@ -63,6 +63,36 @@ function PhotographerProfile() {
     let options;
     let reviewSection;
 
+    let spacing = (<div></div>);
+    if (user.id === currentPhotographer?.userId) {
+        if (photosArr.length === 0) {
+            if (rev.length === 0) {
+                spacing = (
+                <div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </div> )
+            }
+        }
+    } else if (rev.length === 0) {
+        spacing = (
+            <div>
+                <br></br>
+                <br></br>
+                <br></br>
+            </div>
+        )
+    }
+
     if (!user) {
         options = (
             <div></div>
@@ -169,6 +199,7 @@ function PhotographerProfile() {
                     </div>
                 ))}
             </div>
+            {spacing}
             <div class='sean-icon'>
                 <a className='linkedinposition' href="https://github.com/span9692" target="_blank">
                     <img className='github' src="https://res.cloudinary.com/photofinder/image/upload/v1636674658/GitHub-Mark-120px-plus_txoi2x.png" />
