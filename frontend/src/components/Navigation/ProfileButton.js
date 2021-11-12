@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const photographers = useSelector(state=>Object.values(state.photographer))
+  let flag = false;
+
+  photographers.forEach(photographer => {
+    if (photographer?.userId === user?.id) {
+      flag = true;
+    }
+  })
+
 
   const openMenu = () => {
     if (showMenu) return;
@@ -38,7 +48,13 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown no-bullet">
           <div></div>
           <li className='move'>Hello, {user.username}</li>
-          <li className='move'>{user.email}</li>
+          <li className='move'>
+            {flag?
+            <button className='log-out-button'>
+              <Link className='log-out-button' to={`/photographers/${user.id}`}>Profile</Link>
+            </button>:null
+            }
+          </li>
           <li className='move'>
             <button className='log-out-button' onClick={logout}>Log Out</button>
           </li>

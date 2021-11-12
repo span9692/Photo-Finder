@@ -14,4 +14,13 @@ router.get('/', asyncHandler(async(req, res) => {
     res.json(photos);
 }))
 
+router.post('/', asyncHandler(async(req, res) => {
+    const { portfolioId, url, type } = req.body;
+    const newPic = {
+        portfolioId, url, type
+    }
+    const photo = await Photo.create(newPic)
+    res.json(photo)
+}))
+
 module.exports = router;

@@ -51,10 +51,15 @@
     background-color: black;
     border-radius: 5px;
     margin-bottom: 5px;
+    text-decoration: none;
 }
 
 .profileButton {
     position: relative;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .profile-dropdown {
@@ -63,7 +68,7 @@
     position: absolute;
     background-color: black;
     z-index: 0;
-    margin-left: -7em;
+    margin-left: -6em;
     margin-top: 14px;
     color:white;
     border-bottom-left-radius: 7px;
