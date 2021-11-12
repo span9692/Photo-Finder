@@ -14,11 +14,11 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <div class='ayo'>
-        <div className='black'>
-          <ProfileButton user={sessionUser} />
-        </div>
         <div>
           <button className='no-border blackback'><Link class='post-photographer' to='/post'>Become a Photographer</Link></button>
+        </div>
+        <div className='black'>
+          <ProfileButton user={sessionUser} />
         </div>
       </div>
     );
