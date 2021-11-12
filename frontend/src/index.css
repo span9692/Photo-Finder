@@ -200,3 +200,30 @@ ul {
     font-weight: bold;
     font-size: 100px;
 }
+
+.github,
+.linkedin {
+    position: relative;
+    margin-right: 1px;
+}
+
+.github {
+    height: 50px;
+}
+
+.linkedin {
+    height: 80px;
+}
+
+.seanicon {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.linkedinposition {
+    vertical-align: bottom;
+    display: flex;
+}
