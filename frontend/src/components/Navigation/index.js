@@ -37,7 +37,7 @@ function Navigation({ isLoaded }) {
         <li>
           <div class='homebar'>
             <div>
-              <Link class='home-button path' exact to="/">Home</Link>
+              <Link class='home-button path' exact to="/">Photo Finders</Link>
             </div>
             <div>
               <Link class='home-button path' to='/photographers'>Photographers</Link>
