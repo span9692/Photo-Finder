@@ -12,6 +12,7 @@ import ReviewField from '../ReviewField';
 import { showReviews } from '../../store/review';
 import DeleteReviewModal from '../DeleteReviewModal';
 import { showPicture } from '../../store/photos';
+import AddPhotoModal from '../AddPhotoModal';
 
 
 
@@ -55,32 +56,36 @@ function PhotographerProfile() {
         dispatch(showPicture())
     }, [dispatch])
 
-    // let array = {...photographerList}
-    // if (+photographerId > array.length) {
-    //     history.push('/photographers')
-    // }
 
     let options;
     let reviewSection;
-
+    let newPicture = (<div></div>);
     let spacing = (<div></div>);
+
+    if (user?.id === currentPhotographer?.userId) {
+        newPicture = (
+            <div>
+                <AddPhotoModal />
+            </div>
+        )
+    }
 
     if (!user || user?.id === currentPhotographer?.userId) {
         if (photosArr.length === 0) {
             if (rev.length === 0) {
                 spacing = (
-                <div>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                </div> )
+                    <div>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                    </div>)
             } else {
                 spacing = (
                     <div>
@@ -152,7 +157,14 @@ function PhotographerProfile() {
             <br></br>
             <br></br>
 
-
+            {/* <form name="uploadForm">
+                <div>
+                <input id="uploadInput" type="file" name="myFiles" multiple />
+                selected files: <span id="fileNum">0</span>;
+                total size: <span id="fileSize">0</span>
+                </div>
+                <div><input type="submit" value="Send file" /></div>
+            </form> */}
             <div class='container'>
                 <div>
                     <img class='profile-pic' src={currentPhotographer?.profilePic}></img>
@@ -188,12 +200,16 @@ function PhotographerProfile() {
                 </div>
                 <div className='side-container'></div>
             </div>
-
+            <div className='box'>
+                <div className='side-container'></div>
+                {newPicture}
+                <div className='side-container'></div>
+            </div>
             <div></div>
             {reviewSection}
             <div></div>
             <div className='review'>
-            <div className='rev-title'>Reviews</div>
+                <div className='rev-title'>Reviews</div>
                 {rev.map(review => (
                     <div key={review.id} className='rev1 review-box'>
                         <div className='review-context'>
