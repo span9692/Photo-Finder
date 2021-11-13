@@ -11,6 +11,10 @@ function LoginForm() {
   const demoLogin = async () => {
     const demoUser = { credential: 'nickv', password: 'password' }
     return dispatch(sessionActions.login(demoUser))
+    .catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+  });
   }
 
   const handleSubmit = (e) => {
@@ -43,7 +47,7 @@ function LoginForm() {
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
-            // required
+            required
           />
         </div>
         <div className='field5 field6'>
@@ -54,7 +58,7 @@ function LoginForm() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            // required
+            required
           />
         </div>
         <div className='field7'>
