@@ -72,6 +72,7 @@ const PhotographerForm = () => {
                             <br></br>
                             <input
                                 id='firstName'
+                                placeholder='First name'
                                 type='text'
                                 onChange={(e) => setFirstName(e.target.value)}
                                 value={firstName}
@@ -83,6 +84,7 @@ const PhotographerForm = () => {
                             <input
                                 id='lastName'
                                 type='text'
+                                placeholder='Last name'
                                 onChange={(e) => setLastName(e.target.value)}
                                 value={lastName}
                             />
@@ -93,6 +95,7 @@ const PhotographerForm = () => {
                             <input
                                 id='profilePic'
                                 type='text'
+                                placeholder='https://example.jpg'
                                 onChange={(e) => setProfilePic(e.target.value)}
                                 value={profilePic}
                             />
@@ -103,6 +106,7 @@ const PhotographerForm = () => {
                             <textarea id='biography'
                             className='edit-prof'
                                 type='text'
+                                placeholder='Say something about yourself...'
                                 onChange={(e) => setBiography(e.target.value)}
                                 value={biography}></textarea>
                         </div>
@@ -111,6 +115,7 @@ const PhotographerForm = () => {
                             <br></br>
                             <input
                                 id='city'
+                                placeholder='San Francisco'
                                 type='text'
                                 onChange={(e) => setCity(e.target.value)}
                                 value={city}
@@ -122,6 +127,7 @@ const PhotographerForm = () => {
                             <input
                                 id='state'
                                 type='text'
+                                placeholder='CA'
                                 onChange={(e) => setState(e.target.value)}
                                 value={state}
                             />
@@ -132,6 +138,7 @@ const PhotographerForm = () => {
                             <input
                                 id='price'
                                 type='integer'
+                                placeholder='75'
                                 onChange={(e) => setPrice(e.target.value)}
                                 value={price}
                             />
