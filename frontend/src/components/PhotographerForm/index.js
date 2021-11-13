@@ -29,6 +29,7 @@ const PhotographerForm = () => {
         setErrors([]);
 
         history.push('/photographers')
+        // history.push(`/photographers/${sessionUser.id}`)
     }
 
     const onSubmit = async (e) => {
@@ -51,7 +52,7 @@ const PhotographerForm = () => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors)
             });
-        // history.push('/photographers')
+        // history.push(`/photographers/${newPhotographer.userId}`)
     };
 
     return (
