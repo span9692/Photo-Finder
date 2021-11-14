@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
+import DeletePhoto from '../DeletePhotoModal';
 import './photoModal.css'
 
 function PhotoModal({photoId, url}) {
@@ -11,6 +12,7 @@ function PhotoModal({photoId, url}) {
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <img className='image-modal' src={url} />
+                    <DeletePhoto />
                 </Modal>
             )}
         </>
