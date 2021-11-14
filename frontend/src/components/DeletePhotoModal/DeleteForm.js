@@ -3,11 +3,11 @@ import { removePhoto } from '../../store/photos';
 // import { deleteBooking } from '../../store/booking';
 
 
-function DeleteForm() {
+function DeleteForm({photoId}) {
     const dispatch = useDispatch();
     const deleteButton = async () => {
 
-        dispatch(removePhoto())
+        dispatch(removePhoto(photoId))
     //     setShowModal(false)
     }
 

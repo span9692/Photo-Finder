@@ -14,7 +14,7 @@ import DeleteReviewModal from '../DeleteReviewModal';
 import { showPicture } from '../../store/photos';
 import AddPhotoModal from '../AddPhotoModal';
 import PhotoModal from '../PhotoModal';
-
+// import DeletePhoto from '../DeletePhotoModal';
 
 
 function PhotographerProfile() {
@@ -209,6 +209,7 @@ function PhotographerProfile() {
                         // <img className='image6' key={photo.id} src={photo.url} />
                         <div key={photo.id}>
                             <PhotoModal photoId={photo.id} url={photo.url} />
+                            {/* <DeletePhoto photoId={photo.id}/> */}
                         </div>
                     ))}
                 </div>
