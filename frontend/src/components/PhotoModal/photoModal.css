@@ -1,14 +1,19 @@
 .image-modal {
     height: 600px;
     width: fit-content;
+
 }
 
-.deletephotomodal {
-    justify-content: center;
+#deletephotomodal {
     display: flex;
-    width: 800px;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-color: yellow;
+    position: absolute;
+    bottom:0;
+    /* right:0; */
+    margin-top: 5rem;
+    padding-top: 50px;
+    /* width: 20px; */
+    /* background-color: yellow; */
 }
-
