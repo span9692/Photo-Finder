@@ -10,6 +10,10 @@ function AddPhotoForm({setShowModal}) {
     const dispatch = useDispatch();
     const {photographerId} = useParams();
 
+    useEffect(() => {
+        dispatch(addPhoto())
+    }, [dispatch])
+
     const onSubmit = async (e) => {
         e.preventDefault();
 

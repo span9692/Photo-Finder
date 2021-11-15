@@ -57,7 +57,13 @@ ul {
     border: 1px solid black;
     margin-right: 20px;
     margin-bottom: 20px;
-    background-color:black
+    background-color:black;
+    transition: all .2s ease-in-out;
+}
+
+.individual-pix:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px 4px rgb(161, 161, 161);
 }
 
 .portraits {
@@ -66,6 +72,7 @@ ul {
     flex-wrap: wrap;
     position: relative;
 }
+
 
 .info {
     display: flex;
@@ -259,4 +266,3 @@ ul {
     font-size: 30px;
     text-decoration: underline black 2px;
 }
-

@@ -150,6 +150,10 @@
     cursor: pointer;
 }
 
+.start-button:focus {
+    background-color: rgb(221, 1, 1);;
+}
+
 .no-bullet {
     list-style-type: none;
     width: 100%;

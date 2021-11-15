@@ -38,7 +38,8 @@ export const addPhoto = (data) => async dispatch => {
         body: JSON.stringify(data)
     })
     if (response.ok) {
-        dispatch(newPhoto(data))
+        const freshPhoto = await response.json()
+        dispatch(newPhoto(freshPhoto))
     }
 }
 
