@@ -178,7 +178,7 @@ function PhotographerProfile() {
 
             <div class='container'>
                 <div>
-                    <img class='profile-pic' src={currentPhotographer?.profilePic}></img>
+                    <img class='profile-pic' src={currentPhotographer?.profilePic} alt="Error"></img>
                 </div>
                 <div class='profile-info'>
                     <div>
