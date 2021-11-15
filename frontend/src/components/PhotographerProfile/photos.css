@@ -9,7 +9,7 @@
 }
 
 .image-container6 {
-    /*4 images or less */
+    /*5 images or less */
     display: flex;
     justify-content: center;
     overflow: auto;
@@ -18,7 +18,7 @@
 }
 
 .image-container7 {
-    /*5 images or more */
+    /*6 images or more */
     display: flex;
     overflow: auto;
     overflow-y: hidden;
