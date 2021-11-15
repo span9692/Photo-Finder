@@ -90,7 +90,7 @@ function SignupFormPage() {
             </div>
             <div>
                 <button className='login-logout-button' type="submit">Sign Up</button>
-                <button className='demologinbutton' onClick={demoLogin}>Demo Login</button>
+                <button className='demologinbutton' type="button" onClick={demoLogin}>Demo Login</button>
             </div>
         </form>
     );
