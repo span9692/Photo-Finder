@@ -208,7 +208,7 @@ function PhotographerProfile() {
                     {photosArr.map(photo => (
                         // <img className='image6' key={photo.id} src={photo.url} />
                         <div key={photo.id}>
-                            <PhotoModal photoId={photo.id} url={photo.url} />
+                            <PhotoModal userId={user?.id} photographerId={+photographerId} photoId={photo.id} url={photo.url} />
                             {/* <DeletePhoto photoId={photo.id}/> */}
                         </div>
                     ))}
