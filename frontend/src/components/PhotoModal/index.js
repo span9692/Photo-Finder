@@ -12,7 +12,7 @@ function PhotoModal({photoId, url}) {
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     {/* <div class='deletephotomodal'> */}
-                    <img className='image-modal' src={url} />
+                    <img className='image-modal' src={url} alt="Error" />
                     <DeletePhoto photoId={photoId}/>
 
 
