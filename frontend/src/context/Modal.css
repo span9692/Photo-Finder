@@ -18,12 +18,16 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-#modal-content {
+.modal-content {
   display: flex;
   position: absolute;
   justify-content: center;
   background-color: rgb(202, 176, 176);
   width: 200px;
+  /* width: 10px; */
+  /* width:fit-content; */
+  /* width: 100%; */
+  /* width: auto; */
   border-radius: 12px;
 }
 
