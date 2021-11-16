@@ -38,7 +38,6 @@ export const deletePhotographer = (data) => async dispatch => {
         method:"DELETE"
     })
     if (response.ok) {
-        // const updated = await response.json();
         dispatch(removePhotographer(data))
     }
 }
@@ -50,7 +49,6 @@ export const updatePhotographer = (data) => async dispatch => {
         body: JSON.stringify(data.update)
     })
     if (response.ok) {
-        // const updated = await response.json();
         dispatch(modifyPhotographer(data.update))
     }
 }
