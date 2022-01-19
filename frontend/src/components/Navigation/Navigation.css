@@ -184,3 +184,8 @@
     background-color: black;
 }
 
+@media (max-width: 720px) {
+    .navbar {
+        min-width: 720px;
+    }
+}
