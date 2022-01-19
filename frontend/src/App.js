@@ -28,7 +28,7 @@ function App() {
         </Route>
         <Route exact path='/photographers'>
           <Photographers />
-        </Route>
+        </Route> 
         <Route path='/post'>
           <PhotographerForm />
         </Route>
