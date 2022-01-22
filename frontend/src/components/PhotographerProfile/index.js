@@ -14,7 +14,7 @@ import DeleteReviewModal from '../DeleteReviewModal';
 import { showPicture } from '../../store/photos';
 import AddPhotoModal from '../AddPhotoModal';
 import PhotoModal from '../PhotoModal';
-// import DeletePhoto from '../DeletePhotoModal';
+
 
 
 function PhotographerProfile() {
@@ -206,10 +206,9 @@ function PhotographerProfile() {
                 <div className='side-container'></div>
                 <div className= {photosArr.length < 6 ? 'image-container6' : 'image-container7'}>
                     {photosArr.map(photo => (
-                        // <img className='image6' key={photo.id} src={photo.url} />
+
                         <div key={photo.id}>
                             <PhotoModal userId={user?.id} photographerId={+photographerId} photoId={photo.id} url={photo.url} />
-                            {/* <DeletePhoto photoId={photo.id}/> */}
                         </div>
                     ))}
                 </div>
