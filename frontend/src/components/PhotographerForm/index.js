@@ -52,7 +52,6 @@ const PhotographerForm = () => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors)
             });
-        // history.push(`/photographers/${newPhotographer.userId}`)
     };
 
     return (

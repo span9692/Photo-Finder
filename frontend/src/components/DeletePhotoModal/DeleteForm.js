@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux'
 import { removePhoto } from '../../store/photos';
-// import { deleteBooking } from '../../store/booking';
 
 
 function DeleteForm({photoId}) {
@@ -8,7 +7,6 @@ function DeleteForm({photoId}) {
     const deleteButton = async () => {
 
         dispatch(removePhoto(photoId))
-    //     setShowModal(false)
     }
 
     return (

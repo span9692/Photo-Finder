@@ -1,6 +1,5 @@
 import { csrfFetch } from "./csrf";
 
-// action creator
 const NEW_BOOKING = 'booking/NEW_BOOKING'
 const GET_BOOKING = 'booking/GET_BOOKING'
 const DELETE_BOOKING = 'booking/DELETE_BOOKING'
@@ -26,7 +25,6 @@ const removeBooking = (data) => {
     }
 }
 
-// thunk function
 export const getBooking = () => async dispatch => {
     const response = await csrfFetch('/api/booking')
     const appointments = await response.json();
@@ -55,7 +53,6 @@ export const deleteBooking = (data) => async dispatch => {
     }
 }
 
-// reducer
 const bookingReducer = (state = {}, action) => {
     let newState;
     switch (action.type) {
