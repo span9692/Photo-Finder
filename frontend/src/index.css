@@ -1,7 +1,7 @@
 /* TODO Add site wide styles */
 body {
-    background-color: rgba(49, 39, 35, 0.473);
-    /* background-color: white; */
+    /* background-color: rgba(49, 39, 35, 0.473); */
+    background: linear-gradient(60deg, rgb(204, 150, 150), rgb(221, 220, 173));
 }
 
 .wrapper {
