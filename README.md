@@ -1,5 +1,30 @@
-# Photo-Finder
-This website is a clone of [airbnb.com](https://www.airbnb.com/).
+# Photo Finders
+
+*By Sean Pan* - [Visit Photo Finders](https://photo-finders.herokuapp.com/)
+
+This is the README for the my first solo project from App Academy.
+The project was inspired by Airbnb and built using Javascript,
+React.js and Redux for the front end and Express for the backend.
+
+# Photo Finders at a Glance
+
+Photo Finders is a fullstack app that allows users to book photographers to help them take pictures for upcoming events. Users can look through each photographer's profile and see the types of photos each photographer specializes in. Once a user decides on a photographer, the user may create a booking through through the photographer's profile page. Users may also leave reviews for the photographers.
+
+![feed](https://res.cloudinary.com/photofinder/image/upload/v1641542545/Capture_ypspim.jpg)
+
+# Frontend Overview
+- JavaScript
+- React
+- Redux
+- HTML
+- CSS
+- Node.js
+
+# Backend Overview
+- JavaScript
+- Express
+- PostgreSQL
+- Sequalize
 
 ## Main Features
 * Users can create an account, log in, and have full access to the website
